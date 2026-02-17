@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About · Emily's Coding Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Code+Pro:wght@400;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1a1a2e;
+            --paper: #faf8f5;
+            --accent: #e07a5f;
+            --accent-light: #f4d6cc;
+            --muted: #8a8a9a;
+            --code-bg: #2d2d3f;
+            --code-text: #c9d1d9;
+            --border: #e4e0db;
+            --shadow: rgba(26, 26, 46, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 2rem 0;
+        }
+
+        .nav-logo {
+            font-family: 'Source Code Pro', monospace;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-logo span { color: var(--muted); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a.active { color: var(--ink); }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a.active::after { width: 100%; }
+        .nav-links a:hover { color: var(--ink); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 5rem 2rem 3rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        /* --- Left column: identity card --- */
+        .about-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: sticky;
+            top: 2rem;
+            opacity: 0;
+            animation: fadeUp 0.5s ease 0.1s forwards;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.4rem;
+            color: white;
+        }
+
+        .about-card h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .about-card .subtitle {
+            font-size: 0.88rem;
+            color: var(--muted);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-card .links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .about-card .links a {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.8rem;
+            color: var(--accent);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .about-card .links a:hover {
+            background: var(--accent-light);
+            border-color: var(--accent-light);
+        }
+
+        /* --- Right column: bio text --- */
+        .about-text {
+            opacity: 0;
+            animation: fadeUp 0.5s ease 0.25s forwards;
+        }
+
+        .about-text h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .about-text p {
+            font-size: 1.02rem;
+            color: var(--ink);
+            font-weight: 300;
+            margin-bottom: 1.2rem;
+        }
+
+        .about-text p strong {
+            font-weight: 500;
+        }
+
+        /* --- Skills / Interests --- */
+        .skills-section {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .skills-section h3 {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.8rem;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.78rem;
+            background: white;
+            border: 1px solid var(--border);
+            color: var(--ink);
+            padding: 0.35rem 0.8rem;
+            border-radius: 6px;
+            font-weight: 400;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-light);
+            border-color: var(--accent-light);
+            color: var(--accent);
+        }
+
+        /* --- Footer --- */
+        footer {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            font-size: 0.82rem;
+            color: var(--muted);
+            font-weight: 300;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 700px) {
+            nav { flex-direction: column; gap: 1rem; align-items: flex-start; }
+            .about-content {
+                grid-template-columns: 1fr;
+                padding: 4rem 1.5rem 2rem;
+                gap: 2rem;
+            }
+            .about-card {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">emily<span>.codes</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+        </ul>
+    </nav>
+
+    <section class="about-content">
+
+        <!-- Left: Identity Card -->
+        <div class="about-card">
+            <div class="avatar">E</div>
+            <h2>Emily</h2>
+            <p class="subtitle">Graduate Student · Biostatistics</p>
+            <div class="links">
+                <a href="https://github.com/">→ GitHub</a>
+                <a href="mailto:you@example.com">→ Email</a>
+            </div>
+        </div>
+
+        <!-- Right: Bio -->
+        <div class="about-text">
+            <h1>About me & this blog</h1>
+
+            <p>
+                Hi! I'm Emily — a graduate student in biostatistics at Harvard, currently cross-registered in MIT's Healthcare Ventures class. I spend my days working with data, statistics, and code.
+            </p>
+
+            <p>
+                This blog is where I document what I'm learning and building. It started as a class assignment, but I'm using it as a space to share projects, notes, and the occasional deep dive into topics I find interesting.
+            </p>
+
+            <p>
+                When I'm not staring at R or SAS output, you might find me exploring new datasets, reading papers, or debugging something that "should definitely work."
+            </p>
+
+            <div class="skills-section">
+                <h3>// things I work with</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">R</span>
+                    <span class="skill-tag">SAS</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Excel</span>
+                    <span class="skill-tag">Biostatistics</span>
+                    <span class="skill-tag">Survival Analysis</span>
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">GWAS</span>
+                    <span class="skill-tag">Data Visualization</span>
+                    <span class="skill-tag">HTML / CSS</span>
+                </div>
+            </div>
+
+            <div class="skills-section">
+                <h3>// interests</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Maternal Health</span>
+                    <span class="skill-tag">Clinical Data</span>
+                    <span class="skill-tag">Genomics</span>
+                    <span class="skill-tag">Healthcare Access</span>
+                    <span class="skill-tag">Statistical Theory</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>Built with curiosity & caffeine · <a href="https://github.com/">GitHub</a></p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts · Emily's Coding Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Code+Pro:wght@400;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1a1a2e;
+            --paper: #faf8f5;
+            --accent: #e07a5f;
+            --accent-light: #f4d6cc;
+            --muted: #8a8a9a;
+            --border: #e4e0db;
+            --shadow: rgba(26, 26, 46, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 2rem 0;
+        }
+
+        .nav-logo {
+            font-family: 'Source Code Pro', monospace;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-logo span { color: var(--muted); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a.active { color: var(--ink); }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a.active::after { width: 100%; }
+        .nav-links a:hover { color: var(--ink); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .page-header {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 5rem 2rem 3rem;
+        }
+
+        .page-header h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.2rem, 5vw, 3rem);
+            margin-bottom: 0.75rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--muted);
+            font-weight: 300;
+            max-width: 520px;
+        }
+
+        .divider {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .divider hr {
+            border: none;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .posts-list {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem 5rem;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .post-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.35s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeUp 0.5s ease forwards;
+        }
+
+        .post-card:nth-child(1) { animation-delay: 0.1s; }
+        .post-card:nth-child(2) { animation-delay: 0.2s; }
+        .post-card:nth-child(3) { animation-delay: 0.3s; }
+        .post-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .post-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.35s ease;
+        }
+
+        .post-card:hover {
+            border-color: var(--accent-light);
+            box-shadow: 0 8px 30px var(--shadow);
+            transform: translateY(-2px);
+        }
+
+        .post-card:hover::before { transform: scaleY(1); }
+
+        .post-meta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .post-tag {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.72rem;
+            background: var(--accent-light);
+            color: var(--accent);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .post-date {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .post-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.35;
+        }
+
+        .post-card p {
+            font-size: 0.92rem;
+            color: var(--muted);
+            font-weight: 300;
+        }
+
+        footer {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            font-size: 0.82rem;
+            color: var(--muted);
+            font-weight: 300;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            nav { flex-direction: column; gap: 1rem; align-items: flex-start; }
+            .page-header { padding: 4rem 1.5rem 2rem; }
+            .posts-list { padding: 2rem 1.5rem 4rem; }
+            .post-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">emily<span>.codes</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="posts.html" class="active">Posts</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-header">
+        <h1>All Posts</h1>
+        <p>Everything I've written — assignments, projects, and things I've learned along the way.</p>
+    </section>
+
+    <div class="divider"><hr></div>
+
+    <section class="posts-list">
+
+        <a href="#" class="post-card">
+            <div class="post-meta">
+                <span class="post-tag">intro</span>
+                <span class="post-date">Feb 2026</span>
+            </div>
+            <h3>Hello, World!</h3>
+            <p>Welcome to my coding blog. Here's what I'll be writing about and why I started this site.</p>
+        </a>
+
+        <a href="#" class="post-card">
+            <div class="post-meta">
+                <span class="post-tag">webdev</span>
+                <span class="post-date">Feb 2026</span>
+            </div>
+            <h3>Building This Site from Scratch</h3>
+            <p>How I set up GitHub Pages and designed a simple blog with just HTML and CSS.</p>
+        </a>
+
+        <a href="#" class="post-card">
+            <div class="post-meta">
+                <span class="post-tag">arxiv</span>
+                <span class="post-date">Feb 2026</span>
+            </div>
+            <h3>arXiv Paper Feed</h3>
+            <p>An auto-updating feed of the latest arXiv papers on topics I follow.</p>
+        </a>
+
+        <!-- Add more post cards here as you create new pages -->
+
+    </section>
+
+    <footer>
+        <p>Built with curiosity & caffeine · <a href="https://github.com/">GitHub</a></p>
+    </footer>
+
+</body>
+</html>
