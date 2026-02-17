@@ -276,7 +276,6 @@
     </nav>
 
     <section class="about-content">
-
         <!-- Left: Identity Card -->
         <div class="about-card">
             <div class="avatar">E</div>
@@ -284,7 +283,11 @@
             <p class="subtitle">Harvard Graduate Student · Biostatistics</p>
             <div class="links">
                 <a href="https://github.com/emily-t-weng">→ GitHub</a>
-                <a href="tweng@hsph.harvard.edu">→ Email</a>
+                <button id="email-btn" onclick="navigator.clipboard.writeText('tweng@hsph.harvard.edu').then(() => {
+                    const btn = document.getElementById('email-btn');
+                    btn.textContent = 'Address copied!';
+                    setTimeout(() => btn.textContent = '→ Email', 2000);
+                })">→ Email</button>
             </div>
         </div>
 
