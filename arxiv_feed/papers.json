@@ -1,7 +1,181 @@
 {
-  "last_updated": "2026-02-27 02:43:13 UTC",
+  "last_updated": "2026-02-28 02:31:36 UTC",
   "query": "cat:cs.AI AND (all:\"large language model\" OR all:\"machine learning\")",
   "papers": [
+    {
+      "title": "Model Agreement via Anchoring",
+      "authors": [
+        "Eric Eaton",
+        "Surbhi Goel",
+        "Marcel Hussing",
+        "Michael Kearns",
+        "Aaron Roth",
+        "Sikata Bela Sengupta",
+        "Jessica Sorrell"
+      ],
+      "abstract": "Numerous lines of aim to control $\\textit{model disagreement}$ -- the extent to which two machine learning models disagree in their predictions. We adopt a simple and standard notion of model disagreement in real-valued prediction problems, namely the expected squared difference in predictions between two models trained on independent samples, without any coordination of the training processes. We would like to be able to drive disagreement to zero with some natural parameter(s) of the training procedure using analyses that can be applied to existing training methodologies. We develop a simple general technique for proving bounds on independent model disagreement based on $\\textit{anchoring}$ to the average of two models within the analysis. We then apply this technique to prove disagreement bounds for four commonly used machine learning algorithms: (1) stacked aggregation over an arbitrary model class (where disagreement is driven to 0 with the number of models $k$ being stacked) (2) gradient boosting (where disagreement is driven to 0 with the number of iterations $k$) (3) neural network training with architecture search (where disagreement is driven to 0 with the size $n$ of the architecture being optimized over) and (4) regression tree training over all regression trees of fixed depth (where disagreement is driven to 0 with the depth $d$ of the tree architecture). For clarity, we work out our initial bounds in the setting of one-dimensional regression with squared error loss -- but then show that all of our results generalize to multi-dimensional regression with any strongly convex loss.",
+      "published": "2026-02-26T18:59:32Z",
+      "abstract_url": "http://arxiv.org/abs/2602.23360v1",
+      "pdf_url": "https://arxiv.org/pdf/2602.23360v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ]
+    },
+    {
+      "title": "SOTAlign: Semi-Supervised Alignment of Unimodal Vision and Language Models via Optimal Transport",
+      "authors": [
+        "Simon Roschmann",
+        "Paul Krzakala",
+        "Sonia Mazelet",
+        "Quentin Bouniot",
+        "Zeynep Akata"
+      ],
+      "abstract": "The Platonic Representation Hypothesis posits that neural networks trained on different modalities converge toward a shared statistical model of the world. Recent work exploits this convergence by aligning frozen pretrained vision and language models with lightweight alignment layers, but typically relies on contrastive losses and millions of paired samples. In this work, we ask whether meaningful alignment can be achieved with substantially less supervision. We introduce a semi-supervised setting in which pretrained unimodal encoders are aligned using a small number of image-text pairs together with large amounts of unpaired data. To address this challenge, we propose SOTAlign, a two-stage framework that first recovers a coarse shared geometry from limited paired data using a linear teacher, then refines the alignment on unpaired samples via an optimal-transport-based divergence that transfers relational structure without overconstraining the target space. Unlike existing semi-supervised methods, SOTAlign effectively leverages unpaired images and text, learning robust joint embeddings across datasets and encoder pairs, and significantly outperforming supervised and semi-supervised baselines.",
+      "published": "2026-02-26T18:55:06Z",
+      "abstract_url": "http://arxiv.org/abs/2602.23353v1",
+      "pdf_url": "https://arxiv.org/pdf/2602.23353v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ]
+    },
+    {
+      "title": "FlashOptim: Optimizers for Memory Efficient Training",
+      "authors": [
+        "Jose Javier Gonzalez Ortiz",
+        "Abhay Gupta",
+        "Chris Renard",
+        "Davis Blalock"
+      ],
+      "abstract": "Standard mixed-precision training of neural networks requires many bytes of accelerator memory for each model parameter. These bytes reflect not just the parameter itself, but also its gradient and one or more optimizer state variables. With each of these values typically requiring 4 bytes, training even a 7 billion parameter model can be impractical for researchers with less than 100GB of accelerator memory. We introduce FlashOptim, a suite of optimizations that reduces per-parameter memory by over 50% while preserving model quality and API compatibility. Our approach introduces two key techniques. First, we improve master weight splitting by finding and exploiting a tight bound on its quantization error. Second, we design companding functions that greatly reduce the error in 8-bit optimizer state quantization. Together with 16-bit gradients, these techniques reduce AdamW memory from 16 bytes to 7 bytes per parameter, or 5 bytes with gradient release. They also cut model checkpoint sizes by more than half. Experiments with FlashOptim applied to SGD, AdamW, and Lion show no measurable quality degradation on any task from a collection of standard vision and language benchmarks, including Llama-3.1-8B finetuning.",
+      "published": "2026-02-26T18:52:22Z",
+      "abstract_url": "http://arxiv.org/abs/2602.23349v1",
+      "pdf_url": "https://arxiv.org/pdf/2602.23349v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ]
+    },
+    {
+      "title": "Utilizing LLMs for Industrial Process Automation",
+      "authors": [
+        "Salim Fares"
+      ],
+      "abstract": "A growing number of publications address the best practices to use Large Language Models (LLMs) for software engineering in recent years. However, most of this work focuses on widely-used general purpose programming languages like Python due to their widespread usage training data. The utility of LLMs for software within the industrial process automation domain, with highly-specialized languages that are typically only used in proprietary contexts, remains underexplored. This research aims to utilize and integrate LLMs in the industrial development process, solving real-life programming tasks (e.g., generating a movement routine for a robotic arm) and accelerating the development cycles of manufacturing systems.",
+      "published": "2026-02-26T18:38:00Z",
+      "abstract_url": "http://arxiv.org/abs/2602.23331v1",
+      "pdf_url": "https://arxiv.org/pdf/2602.23331v1",
+      "categories": [
+        "cs.SE",
+        "cs.AI"
+      ]
+    },
+    {
+      "title": "Toward Expert Investment Teams:A Multi-Agent LLM System with Fine-Grained Trading Tasks",
+      "authors": [
+        "Kunihiro Miyazaki",
+        "Takanobu Kawahara",
+        "Stephen Roberts",
+        "Stefan Zohren"
+      ],
+      "abstract": "The advancement of large language models (LLMs) has accelerated the development of autonomous financial trading systems. While mainstream approaches deploy multi-agent systems mimicking analyst and manager roles, they often rely on abstract instructions that overlook the intricacies of real-world workflows, which can lead to degraded inference performance and less transparent decision-making. Therefore, we propose a multi-agent LLM trading framework that explicitly decomposes investment analysis into fine-grained tasks, rather than providing coarse-grained instructions. We evaluate the proposed framework using Japanese stock data, including prices, financial statements, news, and macro information, under a leakage-controlled backtesting setting. Experimental results show that fine-grained task decomposition significantly improves risk-adjusted returns compared to conventional coarse-grained designs. Crucially, further analysis of intermediate agent outputs suggests that alignment between analytical outputs and downstream decision preferences is a critical driver of system performance. Moreover, we conduct standard portfolio optimization, exploiting low correlation with the stock index and the variance of each system's output. This approach achieves superior performance. These findings contribute to the design of agent structure and task configuration when applying LLM agents to trading systems in practical settings.",
+      "published": "2026-02-26T18:37:36Z",
+      "abstract_url": "http://arxiv.org/abs/2602.23330v1",
+      "pdf_url": "https://arxiv.org/pdf/2602.23330v1",
+      "categories": [
+        "cs.AI",
+        "q-fin.TR"
+      ]
+    },
+    {
+      "title": "LLM Novice Uplift on Dual-Use, In Silico Biology Tasks",
+      "authors": [
+        "Chen Bo Calvin Zhang",
+        "Christina Q. Knight",
+        "Nicholas Kruus",
+        "Jason Hausenloy",
+        "Pedro Medeiros",
+        "Nathaniel Li",
+        "Aiden Kim",
+        "Yury Orlovskiy",
+        "Coleman Breen",
+        "Bryce Cai",
+        "Jasper Götting",
+        "Andrew Bo Liu",
+        "Samira Nedungadi",
+        "Paula Rodriguez",
+        "Yannis Yiming He",
+        "Mohamed Shaaban",
+        "Zifan Wang",
+        "Seth Donoughe",
+        "Julian Michael"
+      ],
+      "abstract": "Large language models (LLMs) perform increasingly well on biology benchmarks, but it remains unclear whether they uplift novice users -- i.e., enable humans to perform better than with internet-only resources. This uncertainty is central to understanding both scientific acceleration and dual-use risk. We conducted a multi-model, multi-benchmark human uplift study comparing novices with LLM access versus internet-only access across eight biosecurity-relevant task sets. Participants worked on complex problems with ample time (up to 13 hours for the most involved tasks). We found that LLM access provided substantial uplift: novices with LLMs were 4.16 times more accurate than controls (95% CI [2.63, 6.87]). On four benchmarks with available expert baselines (internet-only), novices with LLMs outperformed experts on three of them. Perhaps surprisingly, standalone LLMs often exceeded LLM-assisted novices, indicating that users were not eliciting the strongest available contributions from the LLMs. Most participants (89.6%) reported little difficulty obtaining dual-use-relevant information despite safeguards. Overall, LLMs substantially uplift novices on biological tasks previously reserved for trained practitioners, underscoring the need for sustained, interactive uplift evaluations alongside traditional benchmarks.",
+      "published": "2026-02-26T18:37:23Z",
+      "abstract_url": "http://arxiv.org/abs/2602.23329v1",
+      "pdf_url": "https://arxiv.org/pdf/2602.23329v1",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.CR",
+        "cs.CY",
+        "cs.HC"
+      ]
+    },
+    {
+      "title": "Evaluating Zero-Shot and One-Shot Adaptation of Small Language Models in Leader-Follower Interaction",
+      "authors": [
+        "Rafael R. Baptista",
+        "André de Lima Salgado",
+        "Ricardo V. Godoy",
+        "Marcelo Becker",
+        "Thiago Boaventura",
+        "Gustavo J. G. Lahr"
+      ],
+      "abstract": "Leader-follower interaction is an important paradigm in human-robot interaction (HRI). Yet, assigning roles in real time remains challenging for resource-constrained mobile and assistive robots. While large language models (LLMs) have shown promise for natural communication, their size and latency limit on-device deployment. Small language models (SLMs) offer a potential alternative, but their effectiveness for role classification in HRI has not been systematically evaluated. In this paper, we present a benchmark of SLMs for leader-follower communication, introducing a novel dataset derived from a published database and augmented with synthetic samples to capture interaction-specific dynamics. We investigate two adaptation strategies: prompt engineering and fine-tuning, studied under zero-shot and one-shot interaction modes, compared with an untrained baseline. Experiments with Qwen2.5-0.5B reveal that zero-shot fine-tuning achieves robust classification performance (86.66% accuracy) while maintaining low latency (22.2 ms per sample), significantly outperforming baseline and prompt-engineered approaches. However, results also indicate a performance degradation in one-shot modes, where increased context length challenges the model's architectural capacity. These findings demonstrate that fine-tuned SLMs provide an effective solution for direct role assignment, while highlighting critical trade-offs between dialogue complexity and classification reliability on the edge.",
+      "published": "2026-02-26T18:20:26Z",
+      "abstract_url": "http://arxiv.org/abs/2602.23312v1",
+      "pdf_url": "https://arxiv.org/pdf/2602.23312v1",
+      "categories": [
+        "cs.HC",
+        "cs.AI",
+        "cs.LG",
+        "cs.RO",
+        "eess.SY"
+      ]
+    },
+    {
+      "title": "Conformalized Neural Networks for Federated Uncertainty Quantification under Dual Heterogeneity",
+      "authors": [
+        "Quang-Huy Nguyen",
+        "Jiaqi Wang",
+        "Wei-Shinn Ku"
+      ],
+      "abstract": "Federated learning (FL) faces challenges in uncertainty quantification (UQ). Without reliable UQ, FL systems risk deploying overconfident models at under-resourced agents, leading to silent local failures despite seemingly satisfactory global performance. Existing federated UQ approaches often address data heterogeneity or model heterogeneity in isolation, overlooking their joint effect on coverage reliability across agents. Conformal prediction is a widely used distribution-free UQ framework, yet its applications in heterogeneous FL settings remains underexplored. We provide FedWQ-CP, a simple yet effective approach that balances empirical coverage performance with efficiency at both global and agent levels under the dual heterogeneity. FedWQ-CP performs agent-server calibration in a single communication round. On each agent, conformity scores are computed on calibration data and a local quantile threshold is derived. Each agent then transmits only its quantile threshold and calibration sample size to the server. The server simply aggregates these thresholds through a weighted average to produce a global threshold. Experimental results on seven public datasets for both classification and regression demonstrate that FedWQ-CP empirically maintains agent-wise and global coverage while producing the smallest prediction sets or intervals.",
+      "published": "2026-02-26T18:07:45Z",
+      "abstract_url": "http://arxiv.org/abs/2602.23296v1",
+      "pdf_url": "https://arxiv.org/pdf/2602.23296v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ]
+    },
+    {
+      "title": "CXReasonAgent: Evidence-Grounded Diagnostic Reasoning Agent for Chest X-rays",
+      "authors": [
+        "Hyungyung Lee",
+        "Hangyul Yoon",
+        "Edward Choi"
+      ],
+      "abstract": "Chest X-ray plays a central role in thoracic diagnosis, and its interpretation inherently requires multi-step, evidence-grounded reasoning. However, large vision-language models (LVLMs) often generate plausible responses that are not faithfully grounded in diagnostic evidence and provide limited visual evidence for verification, while also requiring costly retraining to support new diagnostic tasks, limiting their reliability and adaptability in clinical settings. To address these limitations, we present CXReasonAgent, a diagnostic agent that integrates a large language model (LLM) with clinically grounded diagnostic tools to perform evidence-grounded diagnostic reasoning using image-derived diagnostic and visual evidence. To evaluate these capabilities, we introduce CXReasonDial, a multi-turn dialogue benchmark with 1,946 dialogues across 12 diagnostic tasks, and show that CXReasonAgent produces faithfully grounded responses, enabling more reliable and verifiable diagnostic reasoning than LVLMs. These findings highlight the importance of integrating clinically grounded diagnostic tools, particularly in safety-critical clinical settings.",
+      "published": "2026-02-26T17:51:21Z",
+      "abstract_url": "http://arxiv.org/abs/2602.23276v1",
+      "pdf_url": "https://arxiv.org/pdf/2602.23276v1",
+      "categories": [
+        "cs.AI"
+      ]
+    },
     {
       "title": "Mitigating Legibility Tax with Decoupled Prover-Verifier Games",
       "authors": [
@@ -190,181 +364,6 @@
         "cs.AI",
         "cs.CL",
         "cs.DB",
-        "cs.LG"
-      ]
-    },
-    {
-      "title": "LLMServingSim 2.0: A Unified Simulator for Heterogeneous and Disaggregated LLM Serving Infrastructure",
-      "authors": [
-        "Jaehong Cho",
-        "Hyunmin Choi",
-        "Guseul Heo",
-        "Jongse Park"
-      ],
-      "abstract": "Large language model (LLM) serving infrastructures are undergoing a shift toward heterogeneity and disaggregation. Modern deployments increasingly integrate diverse accelerators and near-memory processing technologies, introducing significant hardware heterogeneity, while system software increasingly separates computation, memory, and model components across distributed resources to improve scalability and efficiency. As a result, LLM serving performance is no longer determined by hardware or software choices in isolation, but by their runtime interaction through scheduling, data movement, and interconnect behavior. However, understanding these interactions remains challenging, as existing simulators lack the ability to jointly model heterogeneous hardware and disaggregated serving techniques within a unified, runtime-driven framework. This paper presents LLMServingSim 2.0, a unified system-level simulator designed to make runtime-driven hardware-software interactions in heterogeneous and disaggregated LLM serving infrastructures explicit and analyzable. LLMServingSim 2.0 embeds serving decisions and hardware behavior into a single runtime loop, enabling interaction-aware modeling of batching, routing, offloading, memory, and power. The simulator supports extensible integration of emerging accelerators and memory systems through profile-based modeling, while capturing dynamic serving behavior and system-level effects. We validate LLMServingSim 2.0 against real deployments, showing that it reproduces key performance, memory, and power metrics with an average error of 0.97%, while maintaining simulation times of around 10 minutes even for complex configurations. These results demonstrate that LLMServingSim 2.0 provides a practical bridge between hardware innovation and serving-system design, enabling systematic exploration and co-design for next-generation LLM serving infrastructures.",
-      "published": "2026-02-26T14:22:17Z",
-      "abstract_url": "http://arxiv.org/abs/2602.23036v1",
-      "pdf_url": "https://arxiv.org/pdf/2602.23036v1",
-      "categories": [
-        "cs.DC",
-        "cs.AI"
-      ]
-    },
-    {
-      "title": "Exploratory Memory-Augmented LLM Agent via Hybrid On- and Off-Policy Optimization",
-      "authors": [
-        "Zeyuan Liu",
-        "Jeonghye Kim",
-        "Xufang Luo",
-        "Dongsheng Li",
-        "Yuqing Yang"
-      ],
-      "abstract": "Exploration remains the key bottleneck for large language model agents trained with reinforcement learning. While prior methods exploit pretrained knowledge, they fail in environments requiring the discovery of novel states. We propose Exploratory Memory-Augmented On- and Off-Policy Optimization (EMPO$^2$), a hybrid RL framework that leverages memory for exploration and combines on- and off-policy updates to make LLMs perform well with memory while also ensuring robustness without it. On ScienceWorld and WebShop, EMPO$^2$ achieves 128.6% and 11.3% improvements over GRPO, respectively. Moreover, in out-of-distribution tests, EMPO$^2$ demonstrates superior adaptability to new tasks, requiring only a few trials with memory and no parameter updates. These results highlight EMPO$^2$ as a promising framework for building more exploratory and generalizable LLM-based agents.",
-      "published": "2026-02-26T13:50:57Z",
-      "abstract_url": "http://arxiv.org/abs/2602.23008v1",
-      "pdf_url": "https://arxiv.org/pdf/2602.23008v1",
-      "categories": [
-        "cs.LG",
-        "cs.AI"
-      ]
-    },
-    {
-      "title": "Residual Koopman Spectral Profiling for Predicting and Preventing Transformer Training Instability",
-      "authors": [
-        "Bum Jun Kim",
-        "Shohei Taniguchi",
-        "Makoto Kawano",
-        "Yusuke Iwasawa",
-        "Yutaka Matsuo"
-      ],
-      "abstract": "Training divergence in transformers wastes compute, yet practitioners discover instability only after expensive runs begin. They therefore need an expected probability of failure for a transformer before training starts. Our study of Residual Koopman Spectral Profiling (RKSP) provides such an estimate. From a single forward pass at initialization, RKSP extracts Koopman spectral features by applying whitened dynamic mode decomposition to layer-wise residual snapshots. Our central diagnostic, the near-unit spectral mass, quantifies the fraction of modes concentrated near the unit circle, which captures instability risk. For predicting divergence across extensive configurations, this estimator achieves an AUROC of 0.995, outperforming the best gradient baseline. We further make this diagnostic actionable through Koopman Spectral Shaping (KSS), which reshapes spectra during training. We empirically validate that our method works in practice: RKSP predicts divergence at initialization, and when RKSP flags high risk, turning on KSS successfully prevents divergence. In the challenging high learning rate regime without normalization layers, KSS reduces the divergence rate from 66.7% to 12.5% and enables learning rates that are 50% to 150% higher. These findings generalize to WikiText-103 language modeling, vision transformers on CIFAR-10, and pretrained language models, including GPT-2 and LLaMA-2 up to 7B, as well as emerging architectures such as MoE, Mamba-style SSMs, and KAN.",
-      "published": "2026-02-26T13:33:25Z",
-      "abstract_url": "http://arxiv.org/abs/2602.22988v1",
-      "pdf_url": "https://arxiv.org/pdf/2602.22988v1",
-      "categories": [
-        "cs.LG",
-        "cs.AI"
-      ]
-    },
-    {
-      "title": "Obscure but Effective: Classical Chinese Jailbreak Prompt Optimization via Bio-Inspired Search",
-      "authors": [
-        "Xun Huang",
-        "Simeng Qin",
-        "Xiaoshuang Jia",
-        "Ranjie Duan",
-        "Huanqian Yan",
-        "Zhitao Zeng",
-        "Fei Yang",
-        "Yang Liu",
-        "Xiaojun Jia"
-      ],
-      "abstract": "As Large Language Models (LLMs) are increasingly used, their security risks have drawn increasing attention. Existing research reveals that LLMs are highly susceptible to jailbreak attacks, with effectiveness varying across language contexts. This paper investigates the role of classical Chinese in jailbreak attacks. Owing to its conciseness and obscurity, classical Chinese can partially bypass existing safety constraints, exposing notable vulnerabilities in LLMs. Based on this observation, this paper proposes a framework, CC-BOS, for the automatic generation of classical Chinese adversarial prompts based on multi-dimensional fruit fly optimization, facilitating efficient and automated jailbreak attacks in black-box settings. Prompts are encoded into eight policy dimensions-covering role, behavior, mechanism, metaphor, expression, knowledge, trigger pattern and context; and iteratively refined via smell search, visual search, and cauchy mutation. This design enables efficient exploration of the search space, thereby enhancing the effectiveness of black-box jailbreak attacks. To enhance readability and evaluation accuracy, we further design a classical Chinese to English translation module. Extensive experiments demonstrate that effectiveness of the proposed CC-BOS, consistently outperforming state-of-the-art jailbreak attack methods.",
-      "published": "2026-02-26T13:25:35Z",
-      "abstract_url": "http://arxiv.org/abs/2602.22983v1",
-      "pdf_url": "https://arxiv.org/pdf/2602.22983v1",
-      "categories": [
-        "cs.AI",
-        "cs.CR"
-      ]
-    },
-    {
-      "title": "Modeling Expert AI Diagnostic Alignment via Immutable Inference Snapshots",
-      "authors": [
-        "Dimitrios P. Panagoulias",
-        "Evangelia-Aikaterini Tsichrintzi",
-        "Georgios Savvidis",
-        "Evridiki Tsoureli-Nikita"
-      ],
-      "abstract": "Human-in-the-loop validation is essential in safety-critical clinical AI, yet the transition between initial model inference and expert correction is rarely analyzed as a structured signal. We introduce a diagnostic alignment framework in which the AI-generated image based report is preserved as an immutable inference state and systematically compared with the physician-validated outcome. The inference pipeline integrates a vision-enabled large language model, BERT- based medical entity extraction, and a Sequential Language Model Inference (SLMI) step to enforce domain-consistent refinement prior to expert review. Evaluation on 21 dermatological cases (21 complete AI physician pairs) em- ployed a four-level concordance framework comprising exact primary match rate (PMR), semantic similarity-adjusted rate (AMR), cross-category alignment, and Comprehensive Concordance Rate (CCR). Exact agreement reached 71.4% and remained unchanged under semantic similarity (t = 0.60), while structured cross-category and differential overlap analysis yielded 100% comprehensive concordance (95% CI: [83.9%, 100%]). No cases demonstrated complete diagnostic divergence. These findings show that binary lexical evaluation substantially un- derestimates clinically meaningful alignment. Modeling expert validation as a structured transformation enables signal-aware quantification of correction dynamics and supports traceable, human aligned evaluation of image based clinical decision support systems.",
-      "published": "2026-02-26T13:11:58Z",
-      "abstract_url": "http://arxiv.org/abs/2602.22973v1",
-      "pdf_url": "https://arxiv.org/pdf/2602.22973v1",
-      "categories": [
-        "cs.AI"
-      ]
-    },
-    {
-      "title": "SPM-Bench: Benchmarking Large Language Models for Scanning Probe Microscopy",
-      "authors": [
-        "Peiyao Xiao",
-        "Xiaogang Li",
-        "Chengliang Xu",
-        "Jiayi Wang",
-        "Ben Wang",
-        "Zichao Chen",
-        "Zeyu Wang",
-        "Kejun Yu",
-        "Yueqian Chen",
-        "Xulin Liu",
-        "Wende Xiao",
-        "Bing Zhao",
-        "Hu Wei"
-      ],
-      "abstract": "As LLMs achieved breakthroughs in general reasoning, their proficiency in specialized scientific domains reveals pronounced gaps in existing benchmarks due to data contamination, insufficient complexity, and prohibitive human labor costs. Here we present SPM-Bench, an original, PhD-level multimodal benchmark specifically designed for scanning probe microscopy (SPM). We propose a fully automated data synthesis pipeline that ensures both high authority and low-cost. By employing Anchor-Gated Sieve (AGS) technology, we efficiently extract high-value image-text pairs from arXiv and journal papers published between 2023 and 2025. Through a hybrid cloud-local architecture where VLMs return only spatial coordinates \"llbox\" for local high-fidelity cropping, our pipeline achieves extreme token savings while maintaining high dataset purity. To accurately and objectively evaluate the performance of the LLMs, we introduce the Strict Imperfection Penalty F1 (SIP-F1) score. This metric not only establishes a rigorous capability hierarchy but also, for the first time, quantifies model \"personalities\" (Conservative, Aggressive, Gambler, or Wise). By correlating these results with model-reported confidence and perceived difficulty, we expose the true reasoning boundaries of current AI in complex physical scenarios. These insights establish SPM-Bench as a generalizable paradigm for automated scientific data synthesis.",
-      "published": "2026-02-26T13:08:56Z",
-      "abstract_url": "http://arxiv.org/abs/2602.22971v1",
-      "pdf_url": "https://arxiv.org/pdf/2602.22971v1",
-      "categories": [
-        "cs.AI"
-      ]
-    },
-    {
-      "title": "Discovery of Interpretable Physical Laws in Materials via Language-Model-Guided Symbolic Regression",
-      "authors": [
-        "Yifeng Guan",
-        "Chuyi Liu",
-        "Dongzhan Zhou",
-        "Lei Bai",
-        "Wan-jian Yin",
-        "Jingyuan Li",
-        "Mao Su"
-      ],
-      "abstract": "Discovering interpretable physical laws from high-dimensional data is a fundamental challenge in scientific research. Traditional methods, such as symbolic regression, often produce complex, unphysical formulas when searching a vast space of possible forms. We introduce a framework that guides the search process by leveraging the embedded scientific knowledge of large language models, enabling efficient identification of physical laws in the data. We validate our approach by modeling key properties of perovskite materials. Our method mitigates the combinatorial explosion commonly encountered in traditional symbolic regression, reducing the effective search space by a factor of approximately $10^5$. A set of novel formulas for bulk modulus, band gap, and oxygen evolution reaction activity are identified, which not only provide meaningful physical insights but also outperform previous formulas in accuracy and simplicity.",
-      "published": "2026-02-26T13:05:05Z",
-      "abstract_url": "http://arxiv.org/abs/2602.22967v1",
-      "pdf_url": "https://arxiv.org/pdf/2602.22967v1",
-      "categories": [
-        "physics.comp-ph",
-        "cs.AI"
-      ]
-    },
-    {
-      "title": "FactGuard: Agentic Video Misinformation Detection via Reinforcement Learning",
-      "authors": [
-        "Zehao Li",
-        "Hongwei Yu",
-        "Hao Jiang",
-        "Qiang Sheng",
-        "Yilong Xu",
-        "Baolong Bi",
-        "Yang Li",
-        "Zhenlong Yuan",
-        "Yujun Cai",
-        "Zhaoqi Wang"
-      ],
-      "abstract": "Multimodal large language models (MLLMs) have substantially advanced video misinformation detection through unified multimodal reasoning, but they often rely on fixed-depth inference and place excessive trust in internally generated assumptions, particularly in scenarios where critical evidence is sparse, fragmented, or requires external verification. To address these limitations, we propose FactGuard, an agentic framework for video misinformation detection that formulates verification as an iterative reasoning process built upon MLLMs. FactGuard explicitly assesses task ambiguity and selectively invokes external tools to acquire critical evidence, enabling progressive refinement of reasoning trajectories. To further strengthen this capability, we introduce a two-stage training strategy that combines domain-specific agentic supervised fine-tuning with decision-aware reinforcement learning to optimize tool usage and calibrate risk-sensitive decision making. Extensive experiments on FakeSV, FakeTT, and FakeVV demonstrate FactGuard's state-of-the-art performance and validate its excellent robustness and generalization capacity.",
-      "published": "2026-02-26T13:00:31Z",
-      "abstract_url": "http://arxiv.org/abs/2602.22963v1",
-      "pdf_url": "https://arxiv.org/pdf/2602.22963v1",
-      "categories": [
-        "cs.AI"
-      ]
-    },
-    {
-      "title": "pMoE: Prompting Diverse Experts Together Wins More in Visual Adaptation",
-      "authors": [
-        "Shentong Mo",
-        "Xufang Luo",
-        "Dongsheng Li"
-      ],
-      "abstract": "Parameter-efficient fine-tuning has demonstrated promising results across various visual adaptation tasks, such as classification and segmentation. Typically, prompt tuning techniques have harnessed knowledge from a single pre-trained model, whether from a general or a specialized medical domain. However, this approach typically overlooks the potential synergies that could arise from integrating diverse domain knowledge within the same tuning process. In this work, we propose a novel Mixture-of-Experts prompt tuning method called pMoE, which leverages the strengths of multiple expert domains through expert-specialized prompt tokens and the learnable dispatcher, effectively combining their expertise in a unified model framework. Our pMoE introduces expert-specific prompt tokens and utilizes a dynamic token dispatching mechanism at various prompt layers to optimize the contribution of each domain expert during the adaptation phase. By incorporating both domain knowledge from diverse experts, the proposed pMoE significantly enhances the model's versatility and applicability to a broad spectrum of tasks. We conduct extensive experiments across 47 adaptation tasks, including both classification and segmentation in general and medical domains. The results demonstrate that our pMoE not only achieves superior performance with a large margin of improvements but also offers an optimal trade-off between computational efficiency and adaptation effectiveness compared to existing methods.",
-      "published": "2026-02-26T12:27:06Z",
-      "abstract_url": "http://arxiv.org/abs/2602.22938v1",
-      "pdf_url": "https://arxiv.org/pdf/2602.22938v1",
-      "categories": [
-        "cs.CV",
-        "cs.AI",
         "cs.LG"
       ]
     }
