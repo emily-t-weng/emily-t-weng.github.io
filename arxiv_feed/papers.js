@@ -1,5 +1,5 @@
 const PAPERS_DATA = {
-  "last_updated": "2026-08-28 11:04:31 UTC",
+  "last_updated": "2026-08-29 06:49:06 UTC",
   "query": "cat:cs.AI AND (all:\"large language model\" OR all:\"machine learning\")",
   "papers": [
     {
