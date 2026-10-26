@@ -1,16 +1,132 @@
 {
-  "last_updated": "2026-10-25 04:18:58 UTC",
+  "last_updated": "2026-10-26 04:22:44 UTC",
   "query": "cat:cs.AI AND (all:\"large language model\" OR all:\"machine learning\")",
   "papers": [
     {
-      "title": "Cost-Aware Abstention for LLM-Based IT Ticket Classification",
+      "title": "RobustRLlib: A Unified Library and Benchmark for Robust Reinforcement Learning Algorithms",
       "authors": [
-        "Sachin Gupta"
+        "Xi Chen",
+        "Fengqi Hu",
+        "Zeyu Shen",
+        "Jiaying Xu",
+        "Shangding Gu",
+        "Pan Xu",
+        "Anqi Liu",
+        "Laixi Shi"
       ],
-      "abstract": "Wrong automatic routing of an IT support ticket can cost more than human triage. We evaluate cost-aware abstention as an offline, cost-conditional readiness assessment: select a routing policy on calibration data under explicit costs, then evaluate that frozen policy once on held-out test data. On a public 47,837-ticket, eight-class corpus, we compare four trained non-LLM classifiers with four large language models under zero- and few-shot prompting. Under the illustrative cost model (c_ok, c_triage, c_wrong) = (0, 1, 5), TF-IDF with logistic regression and a threshold of 0.60 selected on calibration reduces test cost from 0.763 to 0.472, a 38.1% relative reduction (paired ratio-bootstrap 95% CI [35.7%, 40.4%]), while lowering wrong routes from 15.3% to 3.5%. Frozen calibration-selected policies also beat both always-route and always-defer on held-out test data in 14 of 16 settings in a post-hoc cost-parameter analysis. The strongest prompted configuration reaches 0.477 accuracy on a stratified 1,000-ticket test subset, versus 0.879 for fine-tuned DistilBERT on the same tickets. Isotonic lowers expected calibration error without reliably improving discrimination: GPT-4o-mini few-shot has one confidence value before and after recalibration and correctness AUROC 0.500. We therefore report correctness AUROC and tie-aware risk-coverage area alongside ECE. At the analytically derived break-even probability 0.80, seven prompted configurations defer all tickets; Haiku few-shot routes only 19/1,000. An LLM-only agreement control and margin/entropy rejection baselines further separate calibration from discrimination. The findings are scoped to this dataset, prompt design, model endpoints, and illustrative costs; the work is an evaluation framework, not a new abstention algorithm or universal deployment certification.",
-      "published": "2026-10-22T17:58:52Z",
-      "abstract_url": "http://arxiv.org/abs/2610.31657v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.31657v1",
+      "abstract": "Robust reinforcement learning (RL) is critical for reliable real-world deployment, where policies may fail under diverse shifts and disruptions. Existing robust RL algorithms offer a rich set of mechanisms and principles, yet two major barriers limit their broader potential: limited algorithm reusability and an unclear empirical capability boundary. We introduce RobustRLlib, an algorithm-centric library and benchmark that addresses both challenges. It integrates 17 representative robust online, offline, and safe RL algorithms under a unified interface for substantially improved reusability, together with an enhanced evaluation platform spanning diverse real-world shifts and advanced humanoid and vision-language-action tasks. Systematic evaluation over 273 perturbation configurations provides an up-to-date capability map of current robust RL algorithms, revealing where they remain effective and where substantial robustness gaps persist. As an open-source, user-friendly platform, RobustRLlib offers a reproducible and extensible codebase for applying existing methods to new problems and developing new robust RL algorithms.",
+      "published": "2026-10-23T17:57:22Z",
+      "abstract_url": "http://arxiv.org/abs/2610.32971v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.32971v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.RO"
+      ]
+    },
+    {
+      "title": "DexPort: A Hand-Held Skill Interface for Dexterous Hand Data Collection",
+      "authors": [
+        "Amber Xie",
+        "Jiawei Fu",
+        "Xiaofeng Guo",
+        "Carmelo Sferrazza",
+        "Guanya Shi",
+        "Haozhi Qi"
+      ],
+      "abstract": "Collecting high-quality demonstrations remains a central bottleneck for learning dexterous manipulation. Teleoperation records executable robot actions, but it requires a complete robot setup and places the burden of coordinating many finger joints on the operator. Human demonstrations are easier to collect, but their motions must be estimated and retargeted to the robot, and they do not directly provide robot actions. In this paper, we introduce DexPort, a portable data-collection interface for high-DoF robot hands. It uses the same hand hardware for collection and deployment, avoiding a hand embodiment gap, and records both commanded joint targets and measured joint states. Our key observation is that a small set of skills can support a wide range of dexterous tasks. During collection, the operator moves the hand-held interface to specify the robot wrist motion and selects or adjusts skills that coordinate the finger motion. This removes the need to control each joint independently while retaining behaviors such as precise grasping and in-hand manipulation. We collect demonstrations across several real-world tasks and in unstructured environments without a robot arm. We then use behavior cloning to train visuomotor policies directly on the recorded wrist motions and hand commands, without skill labels. We evaluate across 4 tasks: pick-and-place with diverse objects, screwing with in-hand tool use, drawer stowage which requires simultaneous grasp and pulling, and a bimanual scanning task. We collect over 2,500 demonstrations with our portable device, in both laboratory and in-the-wild settings. Across our tasks, we see an improvement from 11% to 64% when using recorded robot commands instead of states, and an improvement from 36% to 78% for task success when using in-the-wild data.",
+      "published": "2026-10-23T17:56:28Z",
+      "abstract_url": "http://arxiv.org/abs/2610.32969v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.32969v1",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG"
+      ]
+    },
+    {
+      "title": "Monetizing Intelligence: Advertising and Subscription Design on LLM Platforms",
+      "authors": [
+        "Yuhang Ji",
+        "Fasheng Xu",
+        "Tianjun Feng"
+      ],
+      "abstract": "Large language model (LLM) platforms introducing advertising must decide how much capability ad revenue should fund and what consumers should pay to avoid ads. We study a monopolistic platform that jointly chooses costly response quality, advertising intensity, and subscription prices when advertising reduces user value but better service raises advertising returns. Three findings follow. First, when partly ad-supported and ad-free plans coexist, advertising can finance useful service for consumers who receive none under pure subscription. Lower effective quality in middle plans weakens the alternatives available to premium users, allowing higher prices for unchanged ad-free service. Some fully ad-supported users gain utility, while partly ad-supported and ad-free users lose: broader access can coexist with utility polarization. Second, an intermediate advertising cap can maximize consumer surplus by preserving some revenue that finances service while limiting degradation. Third, cheaper compute can raise quality and reduce ad intensity, yet sufficiently large cost reductions can increase aggregate advertising revenue above its initial level because better service raises the value of the remaining advertised interactions. An extension shows how advertising-funded upgrades can bring plans to the same maximum capability and advertising exposure, eliminating the basis for different prices. These results make menu design central to evaluating LLM advertising: the consequences extend beyond users who see ads to the alternatives and prices faced by those who do not.",
+      "published": "2026-10-23T17:39:42Z",
+      "abstract_url": "http://arxiv.org/abs/2610.32945v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.32945v1",
+      "categories": [
+        "econ.TH",
+        "cs.AI"
+      ]
+    },
+    {
+      "title": "SemantEq: Faithful Bidirectional Equivalence of Formal Statements",
+      "authors": [
+        "Xinrui Li",
+        "Pawan Sasanka Ammanamanchi",
+        "Siddharth Bhat",
+        "Rianna Jamdar",
+        "Yongxi Lin",
+        "Stella Biderman"
+      ],
+      "abstract": "Statement autoformalization translates mathematics from natural language into a proof assistant such as Lean 4, and models now do it at scale. As provers get stronger, the burden of correctness shifts from the proof to the statement, that is, to whether the formal statement faithfully translates its source. Given a trusted reference formalization, the natural test is logical equivalence, and it proves too much. $P \\leftrightarrow Q$ holds trivially for any two statements $P$ and $Q$ that the library proves, because a prover can prove each separately and pass through $P \\leftrightarrow \\mathrm{True} \\leftrightarrow Q$. The stronger the prover, the more unrelated pairs pass. Earlier methods restrict the prover and check that each proof names the other statement. We introduce SemantEq, a more principled relation that instead requires each statement to turn into the other only through a chain of allowed steps, such as logical rearrangement and rewriting with the library's own equations. Our programs judge a proof by the proof term Lean checks, not by its tactic script. SemantEq-Eval, a search without a model, reaches 100% precision and 65.6% recall on the ProofNetVerif test split under our adjudicated labels, against 95.8% and 61.8% for BEq+, and an 8.9-fold increase in its CPU time adds at most three pairs. A language model finds more proofs, but under two of four prompts it proves both directions of about two in five of the non-equivalent pairs. SemantEq-ProofAudit audits each model-written proof under a policy derived from the relation and accepts none of the 104 non-equivalent pairs, and it raises recall on 407 equivalent pairs from 65.4% to 81.1% under the best prompt. Separating the generation of equivalence proofs from their acceptance lets a stronger prover raise recall without changing what an acceptance means. We release code and data at: https://github.com/hlxr89/SemantEq",
+      "published": "2026-10-23T17:20:12Z",
+      "abstract_url": "http://arxiv.org/abs/2610.32919v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.32919v1",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ]
+    },
+    {
+      "title": "Green Code or Costly Code? Evaluating the Energy Costs of Iterative LLM-Based Code Optimizations",
+      "authors": [
+        "Sadra Emami",
+        "Benjamin Weigell",
+        "Mohammad Reza Mousavi",
+        "Gunel Jahangirova",
+        "Hugo Araujo",
+        "Bernhard Bauer"
+      ],
+      "abstract": "Large Language Models (LLMs) are increasingly used to optimize code for performance. This practice often assumes that improvements in execution speed naturally translate into overall lower energy consumption. We challenge this assumption empirically by measuring whether performance-optimized code produced by LLM self-refinement pipelines is also energy-efficient relative to canonical human reference solutions, and whether the energy cost of the optimization process can be offset by subsequent execution-time savings. We evaluate 11 open-source models across four decoding configurations on all 1,000 problems of EffiBench, a state-of-the-art performance benchmark, while collecting per-process, hardware-level energy measurements throughout. Inference energy spans 0.79 to 8.68 MJ across model-variant pairs, which is roughly equivalent to the energy of 250 to 2800 GPT-4.1 queries. Limiting the maximum number of output tokens has the largest impact, reducing energy use by up to 69% compared to the default configuration. On the execution side, 42 of 44 configurations produce code that consumes more energy per problem than the canonical human reference, with overheads ranging from +4% to +886%. The two exceptions achieve only marginal gains, with break-even points on the order of 10^6 to 10^7 executions. Mixture-of-Experts architectures consume substantially less inference energy than equivalently-sized dense models without sacrificing correctness, making architectural choice a more consequential sustainability lever than decoding parameters. Performance optimization and energy efficiency are not always aligned goals: LLM self-refinement consistently produces faster-seeking but energy-heavier code relative to what a human engineer would write. All artifacts are available at https://doi.org/10.5281/zenodo.23598170.",
+      "published": "2026-10-23T16:58:01Z",
+      "abstract_url": "http://arxiv.org/abs/2610.32891v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.32891v1",
+      "categories": [
+        "cs.SE",
+        "cs.AI"
+      ]
+    },
+    {
+      "title": "NgramRL: Accelerating RL Post-Training for Structured Generation via Rollout-Aware N-gram Speculative Decoding",
+      "authors": [
+        "Nilesh Prasad Pandey",
+        "Jangseon Park",
+        "Jason Kong",
+        "Onat Gungor",
+        "Tajana Rosing"
+      ],
+      "abstract": "Reinforcement learning (RL) post-training improves the reasoning capabilities of large language models, but its cost is dominated by autoregressive rollout generation, which can exceed 70% of training time. Existing speculative-decoding methods are poorly suited to this setting: model-based drafters consume scarce GPU memory and may become misaligned as the policy evolves, while existing model-free methods do not explicitly exploit repetition across training epochs. We observe that recent rollouts of the same prompt provide a high-quality, self-updating draft source. Based on this insight, we propose NgramRL, a per-prompt n-gram drafter constructed from bounded recent rollout history. NgramRL requires no auxiliary model, drafter training, or persistent GPU-resident drafter state, while target-model verification preserves the rollout distribution. To hide CPU cache lookup and scheduling, we further introduce an adaptive fan-out prefetcher that predicts likely verification outcomes (j, b), consisting of the accepted draft length j and target-emitted continuation token b. A causal budget allocator concentrates prefetches on high-probability outcomes, while uncovered outcomes fall back to sequential lookup without changing committed tokens. Across two model families and three reasoning and structured-generation workloads, NgramRL commits 3.60-7.77 tokens per target-model forward in the warm-cache regime, up to 1.99x more than SuffixDecoding and 7.0x more than prompt-lookup decoding. On Spider, the prefetcher covers 96.6% of Qwen3-8B outcomes at a candidate budget of 16 and improves measured rollout throughput by 1.38x over synchronous NgramRL, approaching its 1.40x overlap ceiling.",
+      "published": "2026-10-23T16:47:29Z",
+      "abstract_url": "http://arxiv.org/abs/2610.32881v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.32881v1",
+      "categories": [
+        "cs.AI"
+      ]
+    },
+    {
+      "title": "Interpretable sparse fine-tuning with TopKLoRA enables faithful circuit discovery",
+      "authors": [
+        "Marek Masiak",
+        "Andrzej Szablewski",
+        "Nicola Cancedda",
+        "Constantin Venhoff"
+      ],
+      "abstract": "Fine-tuning on datasets of unknown origin can create a backdoor in the trained model when the data includes poisoned examples. Difficult to localise and remove, backdoors can persist through safety training. While parameter-efficient fine-tuning methods capture the full parameter changes introduced during training, they are not easily interpretable. We present the full method of TopKLoRA, extending the preliminary proposal of Masiak et al. (2025), an interpretable-by-design LoRA variant in which only the $k$ largest adapter latents are active at each token. Unlike SAEs, TopKLoRA is trained purely on downstream loss, where optimisation pressure incentivises learning functionally causal latents. We demonstrate this sparse LoRA adapter in a sleeper-agent backdoor case study where we create model organisms by fine-tuning gemma-2-2b, Qwen2.5-1.5B, and Qwen2.5-7B on a poisoned instruction-following dataset. For each organism, we identify and ablate a circuit that is both necessary and sufficient to implement the backdoor. Furthermore, our new fine-tuning method produces sparse circuits that are up to an order of magnitude smaller than a dense LoRA baseline, allowing surgical ablation of the malicious capability without sacrificing instruction-following performance. Finally, we propose a technique to construct model organisms with localised circuits using TopKLoRA latents and gradient-routing, which we use to validate the findings of our circuit search algorithm. We consider these findings as a step toward interpretable-by-design architectures that provide faithful units of analysis without compromising model performance. We share our code: https://github.com/interpretable-finetuning/TopKLoRA.",
+      "published": "2026-10-23T16:37:29Z",
+      "abstract_url": "http://arxiv.org/abs/2610.32866v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.32866v1",
       "categories": [
         "cs.LG",
         "cs.AI",
@@ -18,111 +134,204 @@
       ]
     },
     {
-      "title": "METTA: Memory-Enhanced Test-Time Adaptation for Meta-Reinforcement Learning",
+      "title": "PoKER: A Probability of Kill Estimation Rate Model for Air-to-Air Missiles Using Machine Learning on Stochastic Targets",
       "authors": [
-        "Ali Najar",
-        "Hosein Hasani",
-        "Amir Kooshan Fattah",
-        "Yasamin Rajabi",
-        "Mahdieh Soleymani Baghshah"
+        "Joao P. A. Dantas",
+        "Andre N. Costa",
+        "Diego Geraldo",
+        "Marcos R. O. A. Maximo",
+        "Takashi Yoneyama"
       ],
-      "abstract": "Meta-reinforcement learning aims to train agents that adapt quickly to unseen tasks from limited interaction, but this requires representing task evidence over long interaction histories. Classical recurrent agents compress experience into hidden states, while transformer-based agents retrieve from past trajectories at quadratic memory and computation cost. In this work, we propose Memory-Enhanced Test-Time Adaptation (METTA) for meta-reinforcement learning. It decomposes the fast adaptation phase into two temporal scales: a causal neural memory performs fine-grained within-episode adaptation with linear sequence complexity, while compact episode-level summaries support long-range cross-episode task inference without attending over the full interaction history. Moreover, equipping agents with neural memory provides sufficient expressive capacity and test-time training capability, enabling effective adaptation to unseen held-out tasks and task families at meta-test time. On unseen held-out Meta-World ML10/45 test environments, METTA achieves a success rate over $50\\%$ while maintaining a low training budget and short wall-clock time. On long-context sparse-reward PointMaze tasks, it outperforms transformer-based baselines by exhibiting more structured exploration behavior. These results show that METTA provides an efficient path toward more adaptive and scalable long-context meta-RL.",
-      "published": "2026-10-22T17:58:27Z",
-      "abstract_url": "http://arxiv.org/abs/2610.31656v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.31656v1",
+      "abstract": "This work introduces PoKER, a novel probabilistic model engineered to optimize missile launch effectiveness in air-to-air scenarios, specifically within Beyond Visual Range (BVR) air combat. Unlike conventional Weapon Engagement Zone (WEZ) models that delineate zones based on static distances such as maximum, minimum, and no-escape ranges, PoKER applies machine learning to predict kill probabilities more accurately by integrating the stochastic behaviors of targets and missile miss distances. This model dynamically evaluates target behavior, greatly expanding the predictive capabilities of engagement analysis. By factoring in elements such as warhead lethality, target and shooter orientations, and the specific conditions of engagement, PoKER provides important insights into engagement dynamics and quantifies success probabilities. Consequently, it can potentially be an important tool for BVR air combat pilots, improving operational decision-making within this specialized combat domain.",
+      "published": "2026-10-23T16:34:57Z",
+      "abstract_url": "http://arxiv.org/abs/2610.32864v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.32864v1",
       "categories": [
         "cs.LG",
         "cs.AI"
       ]
     },
     {
-      "title": "EpiSEM-Bench: Evaluating Safety and Evidence Recovery in LLM Agents under Missing Evidence",
+      "title": "Multiplicative vs. Additive State Coupling in Learned Optimizer Schedules",
       "authors": [
-        "Qijin Zhang",
-        "Hanzhen Wang",
-        "Yuehan Zhao",
-        "Haoyu Dai",
-        "Yao Shu",
-        "Zhongxiang Dai",
-        "Shuang Qiu"
+        "M. Harper Langston",
+        "Pierre-David Letourneau",
+        "Dalton Jones",
+        "Roland Memisevic",
+        "Peter Scott",
+        "Mingu Lee",
+        "Richard A. Lethin",
+        "Christopher Lott",
+        "Fatih Porikli",
+        "Harris Teague"
       ],
-      "abstract": "Tool-using language model agents rely on environmental facts to decide whether an action is permitted. When a tool response omits a safety-relevant fact, an agent may carry out a prohibited action even though the user request is benign and every returned statement is true. We introduce \\bench{}, an executable benchmark for evaluating unsafe execution, safety boundaries, and evidence recovery in LLM agents under missing evidence. It contains 300 matched unsafe/safe task pairs across six domains. By systematically suppressing critical facts, the benchmark measures unsafe execution under critical evidence omission and determines the minimum observed failure cardinality, including failures with full evidence and cases with no observed failure after exhaustive testing. An independent audit tool tests whether agents seek missing facts and then withhold prohibited actions while completing permissible tasks. The benchmark reveals substantial variation across the ten models in omission robustness, evidence acquisition, and appropriate action. Resistance to missing evidence does not necessarily translate into useful recovery. Recovery access reduces unsafe execution for all ten models, but agents differ in whether they actively obtain the missing facts and use them to act appropriately in both worlds.",
-      "published": "2026-10-22T17:57:04Z",
-      "abstract_url": "http://arxiv.org/abs/2610.31650v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.31650v1",
+      "abstract": "We learn schedules for a continuous penalty relaxation of MAX-CUT by backpropagating through an unrolled classical solver. A state-blind schedule generalizes to instances substantially larger than those used for training. A state-adaptive bilinear schedule also generalizes out of distribution, outperforming its untrained baseline across 15 seeds ($t=4.1$). By contrast, an additive ablation with identical inputs and output heads is statistically indistinguishable from the bilinear model in distribution but performs worse than its own baseline out of distribution ($t=-11.7$). This separation appears without regularization and persists across a $30$ round weight-decay sweep: the bilinear advantage remains significant at every tested value, whereas the additive model never recovers. The results in this setting isolate how solver state enters the schedule, rather than state adaptivity alone, as the architectural distinction associated with out-of-distribution transfer.",
+      "published": "2026-10-23T15:40:23Z",
+      "abstract_url": "http://arxiv.org/abs/2610.32801v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.32801v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL",
+        "math.NA",
+        "math.OC"
+      ]
+    },
+    {
+      "title": "AI Alignment for Digital Democracy: Fairer Voters Representation against LLM Biases",
+      "authors": [
+        "Yi Qi",
+        "Srijoni Majumdar",
+        "Evangelos Pournaras"
+      ],
+      "abstract": "AI representation is emerging in digital democracy, assisting in voter emulation and decision-making. Large language models (LLMs) behave differently depending on the model, the prompt context, and the voter information they receive, representing some groups more accurately than others and potentially making the emulation unfair to certain groups. We investigate demographic biases in LLM-emulated electorates: how accurately LLMs represent individual votes, whether some voter groups are represented more accurately than others, and whether AI alignment can reduce these disparities without sacrificing overall accuracy. Using three U.S. presidential elections, we compare a closed-source and an open-source LLM across voters' demographic features and test AI alignment strategies toward fairer voter representation. Removing gender from the voter profile reduces the largest group error of the models by 22-42%, and removing education reduces it by 64%, whereas removing self-reported race increases the mean group error by over 40%, all without lowering accuracy. Common alignment strategies, such as repeated queries or fairness instructions, do not reduce these errors and can double them.",
+      "published": "2026-10-23T15:27:40Z",
+      "abstract_url": "http://arxiv.org/abs/2610.32780v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.32780v1",
+      "categories": [
+        "cs.CY",
+        "cs.AI"
+      ]
+    },
+    {
+      "title": "On-Policy Self-Training: Data-Free Self-Improvement in Large Language Models",
+      "authors": [
+        "Leon Sick",
+        "Lukas Hoyer",
+        "Yannick Strümpler",
+        "Christian Reisswig",
+        "Timo Ropinski",
+        "Federico Tombari"
+      ],
+      "abstract": "On-policy self-distillation enables post-training foundation models without relying on stronger external teachers. However, existing approaches rely on ground-truth question-answer pairs, human-curated problem sets, or other supervised signals. In this work, we reformulate on-policy self-distillation as a self-training framework, driven by self-generated question-answer pairs and privileged reasoning demonstrations. We push supervision to the limit: guided solely by coarse, high-level topic descriptions, the model synthesizes its own curriculum of queries and privileged reasoning traces without access to any human-curated prompts or answers. We find that self-distillation on fully synthetic privileged information enables a model to improve across multiple domains while retaining its capabilities on domains it is not self-trained on. We demonstrate the generality of this framework across text and multimodal domains, achieving consistent self-improvement on standard language benchmarks and Visual Question Answering. Our findings demonstrate that foundation models possess rich latent capabilities that can be amplified without external task supervision or curated problem distributions.",
+      "published": "2026-10-23T15:12:03Z",
+      "abstract_url": "http://arxiv.org/abs/2610.32770v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.32770v1",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ]
+    },
+    {
+      "title": "Clean-label Poisoning Attack and Defense Game for Federated Learning in Vehicular Networks",
+      "authors": [
+        "Yalin E. Sagduyu",
+        "Tugba Erpek",
+        "Nathan Stephenson",
+        "Mengran Xue"
+      ],
+      "abstract": "This paper studies interactions between clean-label poisoning attack and defense in vehicular networks using federated learning (FL). Basic Safety Message (BSM) classification for anomaly detection is modeled as a distributed learning problem over a vehicular network with dynamic topology. As a critical threat to FL, a feature-space clean-label attack is introduced, wherein benign samples are perturbed toward malicious feature extremes, degrading class separability while preserving labels. To counter this, a feature-consistency relabeling defense is proposed to detect and relabel suspicious samples. A game-theoretic framework is developed to capture attack-defense interactions and characterize equilibrium strategies based on attack effectiveness and cost parameters. Results show that the attack scales effectively with compromised nodes, while the proposed defense keeps attack success low without degrading clean accuracy and shifts equilibrium regions toward attack-averse regimes.",
+      "published": "2026-10-23T15:06:14Z",
+      "abstract_url": "http://arxiv.org/abs/2610.32765v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.32765v1",
+      "categories": [
+        "cs.NI",
+        "cs.AI",
+        "cs.DC",
+        "cs.LG",
+        "eess.SP"
+      ]
+    },
+    {
+      "title": "Internal Discrepancy for Contrastive Learning: Generalization Bounds and Downstream Behaviors",
+      "authors": [
+        "Jialiang Wang",
+        "Qing Ma",
+        "Xiong Zhou",
+        "Gangfeng Hu",
+        "Haoliang Li",
+        "Xianming Liu"
+      ],
+      "abstract": "Contrastive learning has emerged as a popular paradigm for training representation models. While prior studies pursue more practical and less restrictive assumptions to enhance theoretical understanding of contrastive learning, they essentially describe the interconnections among representations within the data or induced by the function class. To encapsulate these assumptions, we propose the measure of internal discrepancy that quantifies the difference between the mean representation of positive samples and latent cluster centers. We then prove an internal discrepancy-aware generalization bound for downstream supervised tasks following contrastive learning, without requiring additional assumptions. This generalization bound not only serves as a unifying framework connecting various assumptions but also motivates us to further reduce the internal discrepancy, thereby introducing the relaxed k-means loss as an approximation. Moreover, we investigate the downstream behaviors of contrastive learning from the perspective of contrastive learning-incurred supervised losses. In the presence of class imbalance, we shed light on why contrastive learning can facilitate imbalanced learning. Finally, we investigate the optimality of these incurred supervised losses, proving several intriguing properties.",
+      "published": "2026-10-23T14:48:35Z",
+      "abstract_url": "http://arxiv.org/abs/2610.32729v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.32729v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ]
+    },
+    {
+      "title": "PlayerEmbed: Learning Behavioral Fingerprint Representations from Raw Input Sequences",
+      "authors": [
+        "Tobias Schneider",
+        "Lorenz Sparrenberg",
+        "Priya Tomar",
+        "Shahzeb Qamar",
+        "Tobias Deußer",
+        "Rafet Sifa"
+      ],
+      "abstract": "Raw player input sequences in video games contain fine-grained behavior, but are high-dimensional and noisy, which makes large-scale analytics challenging. To address this, we introduce PlayerEmbed, a framework that learns compact and discriminative player embeddings using deep metric learning. Our approach uses a hybrid CNN-LSTM encoder trained on raw input sequences from 1,000 players. We evaluate the model on held-out sequences from these players and on sequences from 1,000 players entirely unseen during training to assess generalization to unseen identities. For player identification, a nearest-centroid classifier built from reference embeddings achieves strong performance, reaching balanced accuracies of 0.950 for players seen during training and 0.879 for players unseen during training. Systematically increasing the number of training players substantially improves generalization to unseen players, indicating a transition from simple fingerprinting to learning transferable behavioral patterns.",
+      "published": "2026-10-23T14:48:02Z",
+      "abstract_url": "http://arxiv.org/abs/2610.32727v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.32727v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ]
+    },
+    {
+      "title": "Do Language Models Trust Their Own Justifications? A Study on Functional Consistency",
+      "authors": [
+        "Alisson Rosa Pereira",
+        "Bruno Iochins Grisci"
+      ],
+      "abstract": "Large Language Models (LLMs) have been widely adopted in text classification tasks, where they not only output class predictions but also generate explanations that highlight the tokens deemed most relevant for reaching the predicted label. Yet it remains unclear whether these highlighted elements are behaviorally consistent with the model's own predictions under targeted interventions, which we refer to as functional auto-consistency. While much of the literature evaluates the textual plausibility of such explanations, few studies assess their functional consistency with the model's actual behavior. In this work, we propose an experimental framework based on the principle of auto-consistency: if a model identifies certain tokens as decisive, then isolating, removing, or semantically inverting them should produce systematic and interpretable changes in its predictions. We operationalize this evaluation through sufficiency, comprehensiveness, and counterfactuality metrics, and conduct experiments on IMDB and Steam reviews across both closed-source (GPT-4o-mini) and open-source LLMs (Gemma3, Granite8B, DeepSeek). Results show that GPT-4o-mini follows the expected progression across all metrics, Gemma3 and Granite8B maintain coherence under sufficiency but lose consistency under more demanding interventions, while DeepSeek variants display structural deviations, either failing to preserve sufficiency or overreacting under comprehensiveness and counterfactuality. These findings show that explanation reliability varies across LLM families and scales, with smaller models displaying contradictions and larger ones exhibiting over-sensitivity. By combining sufficiency, comprehensiveness, and counterfactuality, our approach provides a systematic methodology for assessing the functional consistency of LLM self-explanations.",
+      "published": "2026-10-23T14:08:32Z",
+      "abstract_url": "http://arxiv.org/abs/2610.32665v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.32665v1",
       "categories": [
         "cs.AI",
         "cs.LG"
       ]
     },
     {
-      "title": "Causal Chain of Thought: Mitigating Attention Leakage via Context Isolation",
+      "title": "LGMT: A Tool for Testing the Logical Reasoning Reliability of LLMs",
       "authors": [
-        "Gabriele Dominici",
-        "Teague McMillan",
-        "Fazl Barez",
-        "Marc Langheinrich",
-        "Martin Gjoreski"
+        "Zenghui Zhou",
+        "Xiaoke Fang",
+        "Zheng Zheng"
       ],
-      "abstract": "Chain-of-thought (CoT) prompting elicits step-by-step rationales that appear to explain model predictions, but there is no guarantee these steps causally drive the final answer. In standard autoregressive generation, dense attention allows each reasoning step to attend to the full context, enabling the model to derive answers through direct lookup while generating plausible-sounding but post-hoc justifications. We introduce CausalCoT, an inference framework that enforces causal transparency by decomposing problems into a directed acyclic graph of atomic sub-questions, evaluating each node in an isolated context containing only its direct causal parents. This Markovian structure removes attention pathways to non-parent content, making downstream predictions sensitive to local reasoning rather than global context leakage. Across a diverse suite of reasoning benchmarks, CausalCoT preserves competitive predictive performance while improving explanation faithfulness, increasing causal sensitivity of intermediate reasoning steps by an average of 12 and up to 21 percentage points over the strongest baseline. The structured dependency graph additionally enables test-time interventions in which local corrections propagate predictably through downstream reasoning.",
-      "published": "2026-10-22T17:52:56Z",
-      "abstract_url": "http://arxiv.org/abs/2610.31639v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.31639v1",
+      "abstract": "Large Language Models (LLMs) increasingly serve as reasoning components in modern software systems, yet a model that answers a logical query correctly can contradict itself when the same problem is restated in an equivalent form. Static benchmarks evaluate queries in isolation and therefore fail to expose such inconsistencies. To address this limitation, we present LGMT, an open-source tool that detects reasoning inconsistencies through metamorphic relations grounded in first-order logic. Given a source test case in premise-conclusion form, LGMT generates logically equivalent follow-up cases and checks whether the model's entailment predictions agree across the pair, without ground-truth labels. The tool provides 20 built-in metamorphic relations, supports custom ones verified by the Z3 theorem prover, and runs from a CLI or a web studio, including an offline mock mode requiring no API key. Across six widely used LLMs on a bundled benchmark of 3,091 metamorphic groups, LGMT reveals inconsistency rates ranging from 20.84% to 29.44%. LGMT is publicly available on GitHub at https://github.com/MaxwelsDonc/lgmt-tool, with a demonstration video at https://youtu.be/gou4opptu1U.",
+      "published": "2026-10-23T13:41:43Z",
+      "abstract_url": "http://arxiv.org/abs/2610.32627v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.32627v1",
       "categories": [
-        "cs.LG",
         "cs.AI"
       ]
     },
     {
-      "title": "Questioning Instrumental Convergence in RLVR: Checkpoint Evidence from OLMo-3",
+      "title": "LLaCO: Continuous Diffusion for Large Language Models with Competition-Aware Semantic Scheduling",
       "authors": [
-        "Barış Alparslan",
-        "Sandy Tanwisuth",
-        "Caleb Petterson"
+        "Zijian Jia",
+        "Peixuan Zhang",
+        "Genying Li",
+        "Di Wu",
+        "Yujie Fu",
+        "Si Li",
+        "Boxin Shi",
+        "Shuchen Weng"
       ],
-      "abstract": "Instrumental convergence is often invoked as a general reason to expect capable agents to acquire or express power-seeking subgoals: self-preservation, resource acquisition, deception, or resistance to oversight which poses an important threat to the society. For LLMs, reinforcement learning is the first stage of post-training that directly optimizes behavior against an objective; therefore, it is the stage where convergent instrumental behavior, on IC grounds, likely to appear. Does reinforcement learning with verifiable rewards (RLVR) make a model more likely to express instrumental-convergence behavior, or does this depend on the training regime, evaluation frame, and stage of post-training? We study this question as a checkpoint-conditioned behavioral trajectory rather than as a single before/after safety score. Using InstrumentalEval, we evaluate OLMo-3-7B-Think across SFT, DPO, 13 intermediate RLVR checkpoints, and the final RLVR model. The trajectory is nonmonotonic: instrumental rate rises from 25.0% at SFT to 46.1% near RLVR step 200, then falls to 11.8% at the final checkpoint. Paired item-level tests and step-wise regression support the final SFT-to-RLVR reduction. Prompt framing does not explain this pattern: a harmful-prompt indicator combined with other framing effects explains only 15% of within-checkpoint score variance on average, and Iterative Null-space Projection (INLP) removes a detectable framing direction without changing the SFT-to-final-RLVR gap. Together with preliminary 32B endpoint results (35.53% SFT to 22.37% RLVR final), these findings indicate that RLVR does not monotonically increase instrumental behavior in this setting: the rate rises early, then falls below the SFT baseline. The result is specific to this model family and benchmark, and judge agreement is moderate, so absolute rates should be read cautiously.",
-      "published": "2026-10-22T17:44:41Z",
-      "abstract_url": "http://arxiv.org/abs/2610.31624v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.31624v1",
+      "abstract": "Continuous diffusion models have emerged as a promising non-autoregressive paradigm for text generation over continuous embedding spaces. Along the continuous trajectory, the residual token identity directly shapes the denoising objective. However, the geometric trajectory misaligns with temporal progression, triggering severe temporal compression. In this paper, we show that embedding norm decay causes Euclidean distance to yield spurious overtaking, indicating that token competition must be evaluated directionally. In this space, a candidate overtakes the source token only when the effective noise magnitude surpasses their semantic separation. We formalize these pairwise dynamics as the Competition Threshold Theory (CTT). Crucially, high-dimensional overtaking requires extreme noise levels, causing standard trajectories to concentrate identity decay into a narrow window near the noisy endpoint. To resolve this, we propose Semantic Retention Scheduling (SRS) to align time allocation with the progression of identity decay, and demonstrate that existing token identity metrics are fundamentally statistical aggregations of these pairwise crossings. Building on these theoretical insights, we introduce LLaCO, a generative framework powered by competition-aware semantic scheduling. LLaCO adapts a pretrained backbone to continuous representations via an embedding directional adapter and timestep-conditioned modulation. To operate within the directional space, LLaCO employs a spherical noising process formulated as a geodesic interpolation toward a mask-biased endpoint, eliminating norm decay while preserving accurate token competition. Guided by SRS, LLaCO reallocates the denoising trajectory proportionally to the logarithmic rank decay. Instantiated as an 8B model, LLaCO outperforms previous continuous diffusion baselines and rivals discrete diffusion models of comparable scale.",
+      "published": "2026-10-23T13:28:40Z",
+      "abstract_url": "http://arxiv.org/abs/2610.32604v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.32604v1",
       "categories": [
-        "cs.LG",
         "cs.AI"
       ]
     },
     {
-      "title": "VERA: A Responsible AI Dashboard for Assessing LLM Deployments in Light of the EU AI Act",
+      "title": "Analysing Austrian Parliamentary Speeches by Predicting Party Affiliations",
       "authors": [
-        "Robin Quériaux",
-        "Solveig Bachellery",
-        "Léa Déléris",
-        "Saurabhsingh Rajput",
-        "Mariam Barry",
-        "Tushar Sharma",
-        "Jérôme Lebecq"
+        "Sarah Sulollari",
+        "Vanja Karan",
+        "Benjamin Roth"
       ],
-      "abstract": "Institutions that deploy large language models in regulated settings often need technical evidence of responsible AI practices before approving a deployment. COMPL-AI provides a technical interpretation of the EU AI Act that organises this evidence under six principle groups and eighteen technical requirements, twelve of which current benchmarks can measure. The benchmark suites that produce this evidence are typically operated from a command line, while the staff who approve deployments are non-engineers. We present VERA, an open-source self-hosted dashboard deployed to facilitate responsible AI processes within a large European bank. A reviewer selects a model and runs public benchmarks against it. VERA scores the twelve requirements that current benchmarks can measure and instruments the energy consumed by each evaluation, adding run-level evidence for environmental impact. We run four served open-weight models through the requirement pipeline, and the dashboard displays a score for each measurable requirement. A within-subject study then compares how participants read these benchmark results: from the raw output files in one condition, and through the VERA dashboard in the other. The dashboard reduced the time needed to perform the responsible AI assessment, reducing the time required from 56 seconds using raw files to 30 seconds using our dashboard, on average. Our dashboard scored highly (4.36 out of 5) on usefulness in the survey conducted within the organization. The dashboard and the study material are released publicly to promote replicability and reproducibility in different organisational contexts.",
-      "published": "2026-10-22T17:23:39Z",
-      "abstract_url": "http://arxiv.org/abs/2610.31588v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.31588v1",
-      "categories": [
-        "cs.SE",
-        "cs.AI",
-        "cs.CY"
-      ]
-    },
-    {
-      "title": "Would an LLM Match into a Residency? Uncertainty, Reasoning and Image Use of Open Language Models on the Spanish MIR Examination",
-      "authors": [
-        "Miguel Fernandez-de-Retana",
-        "Unai Zulaika",
-        "Ruben Sanchez-Corcuera",
-        "Aritz Bilbao-Jayo",
-        "Aitor Almeida"
-      ],
-      "abstract": "Accuracy on medical examinations is common evidence offered for the clinical use of language models, yet a health system that intends to run an open model on its own hardware needs to know considerably more: whether the model recognizes when it is likely to be wrong, whether medical fine-tuning improves this ability, whether its correct answers rest on sound clinical reasoning, or whether it actually uses the images it is given. We examine these questions for four open models of 8 to 27 billion parameters on the Spanish MIR residency examination, scoring 1,552 questions from eight editions under the exam's own rules. Answering every question, the three larger models would rank among roughly the first 600 to 3,000 candidates, with 41 to 43 specialties still open to them. Abstention, however, never pays, because even their least confident answers are right more often than the 25% break-even. Medical fine-tuning reduced overconfidence at the cost of accuracy, without improving how well confidence separates right from wrong answers. Moreover, 13-38% of correct answers rejected a distractor for a clinically unsound reason that confidence did not reflect, and removing or swapping the provided contextual images left accuracy unchanged.",
-      "published": "2026-10-22T17:23:11Z",
-      "abstract_url": "http://arxiv.org/abs/2610.31586v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.31586v1",
+      "abstract": "This paper examines speech characteristics of the Austrian National Council members (CMs). We introduce analysis methodology based on a fine-tuned BERT-Model which assigns to every speech a probability distribution over Austrian parties. These are then aggregated at the speaker and party level. We perform an extensive evaluation to ensure the quality of the generated distributions prior to further analysis. Instead of considering mis-assignments of predicted parties as a performance issue, we leverage them to derive insights about the CMs and political developments. Our findings show that parties that govern together become more similar in their speech characteristics, while, analogously, parties that are in opposition move further away from governing parties. Moreover, CMs who switch party usually adapt their speech characteristics only after the switch occurs. Finally, we publicly release a data set containing party affiliation predictions for the speeches of the Austrian National Council from 1996 to 2018.",
+      "published": "2026-10-23T11:38:35Z",
+      "abstract_url": "http://arxiv.org/abs/2610.32515v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.32515v1",
       "categories": [
         "cs.CL",
         "cs.AI",
@@ -131,158 +340,15 @@
       ]
     },
     {
-      "title": "Who Is Sycophantic to Whom? Confident LLMs, Human Deference, and the Collapse of Trust Calibration",
-      "authors": [
-        "Deepthika S",
-        "Pawni Yadav",
-        "B. Sankar"
-      ],
-      "abstract": "Research on sycophancy asks whether large language models (LLMs) bend towards what their users want to hear. We ask the reverse question: when an LLM is confident, consistent, and wrong, do users bend towards it? In a within-subjects experiment, 32 participants learned up to five science topics by chatting with five assistants built on the same model (GPT-5-mini). Unknown to participants, each assistant's briefing had 0, 25, 50, 75, or 100% of its facts replaced by plausible falsehoods, and every assistant spoke with full confidence. A surprise quiz after each topic offered the correct fact, the planted falsehood, and two distractors, with a confidence rating for every answer. Across 104 quizzes and 1,040 answers, scores fell from 7.4 to 2.9 out of 10, and the planted option was chosen on 60% of falsified items against 11% of correctly taught ones (odds ratio 12.5). Transcript coding showed that whenever the assistant stated a falsehood, it was adopted about 65% of the time at every falsification level. Absorbed falsehoods were held with high confidence (8.4/10), the modeled confidence advantage of right over wrong answers vanished, and the discrimination of confidence for correctness fell from an AUROC of 0.70 to chance, while post-task trust ratings barely moved. Participants tended to return to the chat more when the assistant was worse, but returning went with more absorption, not less, and 30% of all turns pasted quiz questions back to the source being checked. The assistant itself was almost never sycophantic and never conceded under pushback. We introduce a baseline-corrected Human Deference Index to quantify this human-side sycophancy and argue that trustworthiness is a property of the human-AI pair, that sycophancy evaluations should measure both directions, and that learning interfaces must make reliability legible claim by claim.",
-      "published": "2026-10-22T17:15:59Z",
-      "abstract_url": "http://arxiv.org/abs/2610.31579v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.31579v1",
-      "categories": [
-        "cs.AI",
-        "cs.HC"
-      ]
-    },
-    {
-      "title": "Social-HUMINT: An LLM-Augmented Unified Framework for Measuring Social Media Exposure",
-      "authors": [
-        "Pellegrino Casoria",
-        "Simon Pietro Romano"
-      ],
-      "abstract": "In the post-API landscape, social-media profiling has become inexpensive and automated: Large Language Models (LLMs) can extract structured information from unstructured content and deduce attributes users never disclosed. A person's true exposure is not what they post but what can be inferred from it. As these practices become routine, exposure to social engineering attacks becomes an operational certainty, demanding a shared framework for assessment and mitigation. We make this exposure measurable by quantifying how accurately a target can be profiled, and how far that profile enables social engineering attacks. Because no existing model fully spans this continuum, we unify Social Media Intelligence (SOCMINT) and Cyber Human Intelligence (Cyber-HUMINT), two individual-focused disciplines that evolved separately, into a single doctrine-grounded taxonomy of 38 capabilities across the Cyber Threat Intelligence lifecycle, where user profiling bridges passive collection and active engagement. Domain experts validated the taxonomy (Fleiss' $κ$ = 0.92). We operationalize its core path (extraction, inference, and susceptibility assessment) as an LLM-augmented multi-agent pipeline, evaluated on real participants' public data. Susceptibility is assessed indirectly: the pipeline predicts how each target would rank personalized engagement options, matching their actual choices significantly above chance. This ranking capacity captures the personalization on which tailored attacks depend. The underlying profiles are accurate: extraction reaches F1 = 97.3%, and inferred attributes score 4.73/5, both far above rule-based and NER-based baselines at negligible cost. The framework augments security analysts' tradecraft rather than replacing it and enables defenders to gauge their own exposure before an adversary does.",
-      "published": "2026-10-22T17:13:46Z",
-      "abstract_url": "http://arxiv.org/abs/2610.31573v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.31573v1",
-      "categories": [
-        "cs.CR",
-        "cs.AI",
-        "cs.SI"
-      ]
-    },
-    {
-      "title": "When to Follow the Teacher: Advantage-Based On-Policy Distillation",
-      "authors": [
-        "Mahdi Sabbaghi",
-        "George Pappas",
-        "Hamed Hassani",
-        "Adel Javanmard"
-      ],
-      "abstract": "Online Policy Distillation (OPD) often outperforms offline methods such as Supervised Fine-Tuning (SFT) by training on trajectories sampled directly from the student. However, standard OPD trains the student to follow the teacher at every state of the trajectory, assuming that teacher guidance is always beneficial. We instead distinguish between what the teacher prefers and what actually helps the current student succeed. We introduce Advantage-Based On-Policy Distillation (AOPD), which weights teacher actions by their counterfactual advantage under the student. Teacher actions that improve the student's expected outcome are reinforced, while those that do not are downweighted. Directly computing these advantages requires trying alternative teacher actions at each step and running new rollouts from each. Instead, we show that the AOPD objective can be estimated using only standard student rollouts and their terminal rewards. Our estimator uses teacher importance weights on the student-sampled actions to provide unbiased advantage-weighted supervision, without any additional rollouts or reward evaluations. This allows AOPD to focus teacher supervision on actions that help the current student while preserving the rollout efficiency of standard OPD. Experiments on math, coding, and Medqa show gains over distillation and RL baselines in both external-teacher and self-distillation settings.",
-      "published": "2026-10-22T17:05:21Z",
-      "abstract_url": "http://arxiv.org/abs/2610.31563v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.31563v1",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "stat.ML"
-      ]
-    },
-    {
-      "title": "Contestable Agents for Data Governance: Recording Human Stewardship of AI-Generated Metadata Across Structured and Unstructured Systems",
-      "authors": [
-        "Humza Akhtar",
-        "Brian Freeman"
-      ],
-      "abstract": "Industrial organizations hold operational knowledge in structured records, such as telemetry, point lists, and transactions, and in unstructured sources, such as manuals, service notes, communications, and inspection reports. Governance programs often manage these sources separately. Classifying, linking, and documenting them depends on a small group of employees with deep domain knowledge. Agents built on large language models can propose metadata, cite documents, and flag quality issues, but unreviewed proposals can spread errors into downstream systems. A perfunctory approval leaves no record of what a reviewer checked. We present contestable governance: specialist agents produce scored, cited arguments for disputed metadata decisions; a steward can accept, reject, modify, or add arguments before commit; and a governance record retains the evidence, interventions, and outcome. A versioned domain glossary supplies model-specific terms and acronym definitions to the agents. We describe the workflow, a triage path that reserves full argumentation for uncertain proposals while preserving review before commit, the scoring and record models, and a gate that controls which verified decisions become precedent. Two HVAC use cases illustrate the pattern: point classification using Brick Schema class labels, supported by an open reference implementation, and an illustrative warranty failure-mode decision linking claim fields and telemetry to service notes and revisioned bulletins.",
-      "published": "2026-10-22T16:57:01Z",
-      "abstract_url": "http://arxiv.org/abs/2610.31553v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.31553v1",
-      "categories": [
-        "cs.AI",
-        "cs.DB",
-        "cs.HC",
-        "cs.MA"
-      ]
-    },
-    {
-      "title": "The Geometry of Metaphor: Probing and Steering Metaphor Representations in Large Language Models",
-      "authors": [
-        "Shihui Li",
-        "Mette Andersen",
-        "Martha Lewis"
-      ],
-      "abstract": "Metaphor is a crucial aspect of human cognition. As such, we would like to understand how it is represented in large language models (LLMs) and how it might be controlled. We use mechanistic interpretability techniques to identify causal subspaces in a range of LLMs covering different architectures and sizes. We show that we are able to steer output on classification tasks across different parts of speech. We are also able to steer output on generation tasks, indicating that these techniques can be used to control the metaphoricity of LLM output.",
-      "published": "2026-10-22T16:33:01Z",
-      "abstract_url": "http://arxiv.org/abs/2610.31520v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.31520v1",
-      "categories": [
-        "cs.CL",
-        "cs.AI"
-      ]
-    },
-    {
-      "title": "From Prompt Rules to Golden Data Model: Production-Scale Generation of Personalized, Compliant Pharmaceutical Claims",
-      "authors": [
-        "Suyash Mishra",
-        "Qiang Li",
-        "Subhabrata Adak",
-        "Upender Phogat",
-        "Srikanth Patil",
-        "Satyanarayan Pati"
-      ],
-      "abstract": "Large language models (LLMs) are increasingly used to generate domain-specific commercial & medical content (e.g., claims, statements, and promotional phrases) in regulated industries such as pharmaceuticals. However, ensuring its regulatory compliance, factual accuracy, and audience-specific personalization remains a major challenge. We report a production case study asking whether moving compliance and personalization signal from prompt-level rules into retrieval time structured context improves pharmaceutical claims generation, using Composer, a deployed internal tool built on a Golden Data Model (GDM) of 1,867 pharmaceutical claims spanning four products. The GDM integrates claim metadata, references, audience labels, material type, usage history, Match Text Variant (MTV) links, and a six dimension quality score (6C). Across six product-audience segments, the context pipeline improves intended indication (+29%), intended content type (+62%) and intended target audience (+67%), 6C quality score (+86%), and claim reuse (+34%). Production log analysis over the deployment period shows a 29.5% reduction in weekly API cost. We report this as descriptive deployment evidence. This work is a systems and data architecture contribution: it shows that in a regulated, high-stakes domain, restructuring claim data for retrieval-time filtering is a more scalable lever than expanding prompt-level rules, and documents the engineering path data cleaning, graph linking, and quality scoring.",
-      "published": "2026-10-22T16:31:36Z",
-      "abstract_url": "http://arxiv.org/abs/2610.31519v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.31519v1",
-      "categories": [
-        "cs.AI"
-      ]
-    },
-    {
-      "title": "SABLE: Scalable Affine Bayesian Latent-space Exploration",
-      "authors": [
-        "Erik Bodin",
-        "Lisa Maria Kreusser",
-        "Donney Fan",
-        "Henry Moss",
-        "Geoff Pleiss",
-        "Nicolas Durrande"
-      ],
-      "abstract": "Complex objects such as engineering designs and proteins are often difficult to optimise because their design spaces exhibit high-dimensional structure and objective evaluations are expensive. Generative models provide continuous latent representations, but their latent spaces can have thousands to tens of thousands of dimensions, creating a regime where the latent dimension $D$ greatly exceeds the evaluation budget. We introduce SABLE, a Bayesian optimisation method for high-dimensional latent spaces with an isotropic distribution and limited budget. SABLE uses a Bayesian affine surrogate for prediction and acquisition, treating higher-order structure as surrogate discrepancy. After $N$ observations, the slope update has dimension at most $N-1$, yielding a decomposition of each query into an in-span component optimised by expected improvement (EI) in at most $N$ dimensions and an off-span component governed by a scalar norm. We show that the off-span norm implicitly selected by affine EI can lead to underexploration, and SABLE instead prescribes it using a finite-horizon schedule, without restricting search to a learned subspace. A recompression scheme reduces information to $\\mathcal O(M)$ pseudo-observations, bounding refitting cost by $\\mathcal O(M^2D+M^3)$ while keeping parameter inference, prediction, and acquisition decisions to tens of milliseconds. Across synthetic benchmarks and latent-space optimisation tasks, SABLE achieves high sample efficiency and reduces decision time by several orders of magnitude at large budgets.",
-      "published": "2026-10-22T16:13:42Z",
-      "abstract_url": "http://arxiv.org/abs/2610.31495v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.31495v1",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "stat.ML"
-      ]
-    },
-    {
-      "title": "Training Small Language Models for Transferable Tool Selection",
-      "authors": [
-        "Zhaoyi Zhou",
-        "Akshayaa Magesh",
-        "Jeongyeol Kwon",
-        "Artem Kuriksha",
-        "Daniel Jiang",
-        "Andrea Zanette",
-        "Ayush Jain"
-      ],
-      "abstract": "As LLM agents operate over corpora of more than ten thousand tools, selecting the right tool for a complex multi-step user instruction becomes a central bottleneck. Tool descriptions cannot all fit in context, and relevance-based retrievers only rank tools without knowing which are actually needed. Recent work instead leverages proprietary commercial LLMs like Claude or ChatGPT to drive a retriever, decomposing the instruction and selecting over retrieved candidates. We show that a small, open model can be trained via reinforcement learning to perform the same functionality. On ToolBench, a Qwen3-8B model post-trained with our recipe outperforms Llama-4-Maverick (402B). In addition, the trained model transfers directly to different retrievers and generalizes to new tool corpora in different domains.",
-      "published": "2026-10-22T16:07:49Z",
-      "abstract_url": "http://arxiv.org/abs/2610.31483v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.31483v1",
-      "categories": [
-        "cs.LG",
-        "cs.AI"
-      ]
-    },
-    {
-      "title": "MoG-VLM: Efficient Video Anomaly Detection through Motion-Guided Vision-Language Models",
+      "title": "Efficient Zero-Shot Video Anomaly Detection via Signal-Aware Adaptive Fusion (SAAF)",
       "authors": [
         "Khaled Waleed Dawoud",
-        "Muhammad Zaigham Zaheer",
-        "Khan Muhammad",
         "Muhammad Haris Khan"
       ],
-      "abstract": "Vision-Language Models (VLMs) have shown strong potential for video anomaly detection, but dense frame-level inference makes them impractical for real-time deployment. Existing acceleration commonly relies on uniform sampling, which ignores content dynamics and can either waste computation on static segments or miss localized anomalies. We propose MoG-VLM a motion-adaptive anomaly detection framework that leverages motion purely as a lightweight control signal to decide when VLM inference is necessary. To this end, we introduce Temporal Gradient Magnitude (TGM) which performs content-aware sampling to concentrate computation on informative regions while avoiding redundant processing. We further introduce a hierarchical dual-stream design in which dense multi-frame VLM reasoning is activated only around frames with elevated anomaly likelihood, via anchor-triggered context-window expansion with early termination. A fusion module then reconciles these instantaneous semantic cues with temporal action dynamics. Across four benchmarks, our method achieves 91.91%, 84.30%, 87.88%, and 78.96% AUC-ROC on XD-Violence, UCF-Crime, MSAD, and ShanghaiTech, respectively, establishing new state of the art on three benchmarks under the zero-shot, training-free setting. On XD-Violence, we improve over the previous best result by +0.57% while delivering a 1.31x inference speedup. These results demonstrate that content-aware allocation of VLM capacity, processing fewer frames more intelligently rather than all frames uniformly, is a more effective axis of progress than uniformly densifying VLM inference across frames. Code is available on GitHub: https://github.com/kdawoud91/MoG-VLM.",
-      "published": "2026-10-22T16:03:47Z",
-      "abstract_url": "http://arxiv.org/abs/2610.31478v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.31478v1",
+      "abstract": "Deploying Vision-Language Models for video anomaly detection confronts a fundamental constraint. Their semantic reasoning demands computational budgets incompatible with the scale of real-world video streams. We present Signal-Aware Adaptive Fusion (SAAF), a framework that achieves efficient zero-shot anomaly detection through three key innovations. First, we introduce a dual-signal adaptive sampler operating in semantic embedding space: a delta signal captures sudden events via frame-to-frame cosine distance, while a drift signal detects static and gradual anomalies through deviation from rolling temporal context. Their OR-gated combination with adaptive EMA-based thresholding provides comprehensive anomaly coverage without training data. Second, we propose a threshold-gated cascaded architecture where lightweight frame-level scoring precedes expensive video-level temporal analysis, invoking it only when confidence warrants additional context. Third, we design a signal-aware weighted fusion mechanism that dynamically adapts score combination based on which signal triggered frame selection. Across four benchmarks, SAAF delivers competitive accuracy at substantially lower cost. Among training-free zero-shot methods, SAAF sets a new state of the art on XD-Violence (92.07%), MSAD (86.70%), and ShanghaiTech (80.54%) AUC-ROC, with XD-Violence and MSAD also surpassing supervised baselines. SAAF sustains 44.95, 48.61, and 41.06 FPS on XD-Violence, UCF-Crime, and MSAD, a 2.43$\\times$, 2.63$\\times$, and 2.22$\\times$ throughput improvement over the prior best zero-shot method. Code: https://github.com/kdawoud91/SAAF",
+      "published": "2026-10-23T11:02:16Z",
+      "abstract_url": "http://arxiv.org/abs/2610.32486v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.32486v1",
       "categories": [
         "cs.CV",
         "cs.AI",
@@ -290,69 +356,21 @@
       ]
     },
     {
-      "title": "Adaptive Skill Granularity for Coding Agents: Runtime Routing and Macro-to-Micro Recovery",
+      "title": "CASE: Confusion-Aware Skill Evolution for Frozen Multimodal Emotion Models",
       "authors": [
-        "Dingxuan Zhang",
-        "Yanhui Jiang",
-        "Jun Wang",
-        "Hefeng Zhou"
+        "Siyu Wu",
+        "Zeyu Liang",
+        "Linghao Wang",
+        "Qiyun Zheng",
+        "Yi Yao",
+        "Ling Lo",
+        "Hongxia Xie"
       ],
-      "abstract": "Reusable skills allow large language model agents to package task-specific procedures, tool affordances, and execution guidance into modular units. Prior work has largely studied how agents retrieve, compose, or synthesize skills before execution. In coding agents, however, execution poses an additional runtime control problem: the same task may be solved through primitive tool calls, macro skills, or hybrid execution that starts with a macro and falls back to micro-level recovery. We introduce Adaptive Skill Granularity, a framework that treats skill granularity as an action-abstraction policy conditioned on task structure, execution state, and macro-skill failures. The system combines a feature-based granularity controller and a finite-state recovery executor. We evaluate the framework with a deterministic coding-agent protocol using verifier-defined success, total cost, and process metrics such as macro adoption, failure recovery, route match, and transition correctness. Results show that fixed macro execution is efficient when applicable but brittle under mismatch, while runtime routing and explicit macro-to-micro recovery improve robustness and recover controlled macro failures that fixed-granularity execution leaves unresolved. Our findings suggest that skill libraries for coding agents should be treated not only as retrievable resources, but also as controllable, verifiable, and recoverable execution abstractions.",
-      "published": "2026-10-22T15:55:18Z",
-      "abstract_url": "http://arxiv.org/abs/2610.31461v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.31461v1",
+      "abstract": "Multimodal large language models (MLLMs) have substantially advanced Multimodal Emotion Recognition (MER) by enabling fine-grained emotion understanding through reasoning over multimodal evidence. However, they still exhibit systematic confusion between semantically adjacent emotions with highly overlapping multimodal cues. Existing approaches typically address these errors through global parameter adaptation, making confusion correction costly and inflexible. We instead observe that emotion confusion is highly localized and therefore better addressed through reusable pair-specific expertise. Building on this insight, we propose Confusion-Aware Skill Evolution (CASE), the first agent-skill framework for MER. CASE maintains a sparse, self-evolving library of pair-specific EmotionSkills that externalize affective expertise from model parameters, enabling the learned expertise to be continuously refined and readily transferred across diverse frozen MLLM backbones. During inference, CASE dynamically retrieves the appropriate EmotionSkill to reinforce boundary-aware reasoning while keeping the MLLM backbone frozen. Extensive experiments on CA-MER, DFEW, and EMER demonstrate the effectiveness and transferability of CASE across both general-purpose and emotion-specialized MLLMs. Notably, CASE improves the average accuracy of Qwen3-VL-8B on the CA-MER benchmark from 46.80% to 59.13%, while achieving consistent gains across MLLMs.",
+      "published": "2026-10-23T10:50:03Z",
+      "abstract_url": "http://arxiv.org/abs/2610.32481v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.32481v1",
       "categories": [
-        "cs.AI",
-        "cs.SE"
-      ]
-    },
-    {
-      "title": "DIAL: Steerable Language Models with Distilled Instruction-Adherence Levels",
-      "authors": [
-        "Thanh Q. Tran",
-        "John Russell Himawan",
-        "Arun Verma",
-        "Kiwan Wong",
-        "Wei Xiao",
-        "Daniela Rus",
-        "Bryan Kian Hsiang Low"
-      ],
-      "abstract": "When a user says \"Keep it short\", how short should the LLM's response be? More generally, users and applications require different levels of instruction adherence, but prompting does not reliably provide fine-grained control over them. We therefore study \"steerable language models\" that provide fine-grained numerical control over the degree to which models follow general instructions specified in text. However, existing approaches do not jointly offer fine-grained control, efficiency, and scalability across diverse instructions. To address this gap, we introduce DIAL (Distilled Instruction-Adherence Levels) to achieve all three properties. For fine-grained control, we perform classifier-free guidance (CFG) with a frozen LLM to provide training signals for on-policy distillation of instruction adherence at different levels. For efficiency, we design a lightweight steering adapter that uses a classifier over the LLM's hidden states to compute a closed-form steering edit. The classifier adaptively sets the steering magnitude at each token based on the target adherence level, while accounting for the geometry of the LLM's hidden states to preserve response coherence. For scalability, the classifier is text-conditioned, allowing a shared adapter to support new instructions without per-instruction fitting, and training requires only instruction and request text. Evaluation across multiple LLM families shows that DIAL achieves a competitive balance between concept expression and response fluency, with concept scores increasing monotonically across adherence levels. We introduce SteerIF, an instruction-only dataset of 98, 625 concept, persona, verifiable, and descriptive instructions. When trained on SteerIF, DIAL provides fine-grained control over personas and, when combined with prompting, improves verifiable instruction following.",
-      "published": "2026-10-22T15:34:39Z",
-      "abstract_url": "http://arxiv.org/abs/2610.31438v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.31438v1",
-      "categories": [
-        "cs.AI",
-        "cs.LG"
-      ]
-    },
-    {
-      "title": "Conservative Meta-Agent Search: Architecture Adaptation under Non-Stationarity",
-      "authors": [
-        "Ali Atiah Alzahrani"
-      ],
-      "abstract": "Automated agentic-system design is typically evaluated on static task suites with immediate scalar rewards. Deployed systems face persistent shift, delayed dependent feedback, correlated component failures, and costly architecture changes. We formalize meta-agent architecture search as sequential incumbent replacement with switching costs and hard risk constraints and introduce Conservative Meta-Agent Search (CMAS). CMAS retrieves archived architectures and proposes typed graph edits, then scores each against the incumbent by paired shadow replay under common random numbers, with interventional component credit. Promotion requires an empirically calibrated, variance-penalized simultaneous score above a pre-specified margin, and is followed by a simulated canary stage and pre-specified rollback. Since backtests cannot certify meta-level skill, we introduce MetaInvest-Bench, a regime-switching simulator whose specified worker competence makes a surrogate-optimal architecture computable, with leakage-controlled replay, adversarial governance tracks, and five negative controls. Financial streams serve as a risk-sensitive testbed for meta-level generalization; we claim no alpha. Across 96 streams, CMAS cuts normalized mean surrogate dynamic-oracle regret from 0.116 to 0.104 and raises held-out utility from 0.44 to 0.48 over the strongest adaptive baseline; when extra workers add no value, it contracts to near-single-agent teams. Its deployment inference cost is ~6% lower, though its search-inclusive token cost is the highest of the methods compared. The observed per-update false-promotion rate is 3.4% against a nominal 5% target, and 4.8% in a sealed rerun. The calibration is empirical: it concerns an update-level replay statistic on an author-designed benchmark, and guarantees neither full-utility improvement, nor absence of simulated canary-stage harm, nor sequence-level error control.",
-      "published": "2026-10-22T15:32:06Z",
-      "abstract_url": "http://arxiv.org/abs/2610.31436v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.31436v1",
-      "categories": [
-        "cs.AI",
-        "cs.LG",
-        "cs.MA"
-      ]
-    },
-    {
-      "title": "Predictable performance is suboptimal, and what it means for model routing",
-      "authors": [
-        "Guanhua Zhang",
-        "Moritz Hardt"
-      ],
-      "abstract": "Large language models (LLMs) differ in capabilities and costs, motivating routing methods that adaptively choose a model for each query. These methods rely on performance prediction: given a query, estimate whether a model will answer it correctly. Most routing methods train separate predictors of candidate models' performance to guide model selection. Our work shows that performance prediction only beats a simple baseline when the candidate model is suboptimal on the task or the performance predictor adds significant capacity relative to the candidate model. Specifically, we take a model's self-confidence, the probability it assigns to its chosen answer, as a baseline and study how much a performance predictor can improve on it. First, we show that any performance predictor that outperforms a model's self-confidence can be used to improve the model's loss: the predictor's advantage transfers exactly in log loss through recalibration. Second, accounting for the predictor's additional parameters, we bound its advantage by the model's suboptimality plus the gain from those parameters. Third, we extend our theoretical results to two-model cascades, which route queries to a more capable model when the first model is predicted to fail. Experiments with 16 language models on four benchmarks show that predictors gain a larger advantage over self-confidence on more suboptimal models. This advantage shrinks as models improve through finetuning. Cascading exhibits the same two patterns: predictor-based routing offers larger gains over confidence-based routing for more suboptimal models, and these gains diminish after finetuning.",
-      "published": "2026-10-22T15:27:27Z",
-      "abstract_url": "http://arxiv.org/abs/2610.31428v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.31428v1",
-      "categories": [
-        "cs.LG",
         "cs.AI"
       ]
     }
